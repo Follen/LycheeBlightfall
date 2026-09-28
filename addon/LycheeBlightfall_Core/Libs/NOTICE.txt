@@ -1,0 +1,22 @@
+Unmodified embedded source libraries:
+
+LibStub 2
+Public domain, as declared in LibStub.lua.
+Credits: Kaelten, Cladhaire, ckknight, Mikk, Ammo, Nevcairiel, joshborke.
+https://www.wowace.com/projects/libstub
+
+CallbackHandler-1.0 revision 8
+BSD License. See CallbackHandler-LICENSE.html (upstream license page).
+https://www.wowace.com/projects/callbackhandler
+
+LibSharedMedia-3.0 revision 12000002
+Author: Elkano (elkano@gmx.de)
+LGPL v2.1. See COPYING.LESSER. Full library source is included alongside this file.
+https://www.curseforge.com/wow/addons/libsharedmedia-3-0
+
+These files retain their original source headers. The libraries may be replaced
+with compatible versions; no restriction on modifying or debugging them is added.
+
+Lychee logo copied from the user's sibling Lychee project at their request.
+Bundled prepare-blightfall.ogg generated with MiniMax speech-2.8-hd,
+Chinese (Mandarin)_Warm_Girl, text: 准备吞病, speed: 1.1, on 2026-09-28.
