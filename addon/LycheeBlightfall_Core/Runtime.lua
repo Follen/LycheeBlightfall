@@ -46,7 +46,7 @@ function ns.Refresh()
     -- One line / one voice at a time. Blightfall always wins when due.
     local reaperState
     if not state.show and not state.voice and not engine.textShown and not engine.voiced then
-        reaperState = engine:UpdateReaper(GetTime(), ns.db, reaping)
+        reaperState = engine:UpdateReaper(GetTime(), ns.db, reaping, aoe)
     end
     if reaperState then
         state.wake = math.min(state.wake, reaperState.wake)
@@ -71,10 +71,16 @@ local function observeGCD()
     if not public(info) or type(info) ~= "table" then return false end
     local duration, rate = info.duration, info.modRate
     if not public(duration) or not public(rate) then return false end
-    if type(duration) ~= "number" or duration <= 0 then return false end
+    if type(duration) ~= "number" or duration ~= duration or duration < 0 then return false end
+    if duration == 0 then engine:SetReaperReady(GetTime()); return false end
     if rate == nil then rate = 1 end
     if type(rate) ~= "number" or rate <= 0 then return false end
-    return engine:SetGCD(duration / rate, GetTime())
+    local now, start = GetTime(), info.startTime
+    if public(start) and type(start) == "number" and start == start and start <= now then
+        local ends = start + duration / rate
+        if ends >= now and ends <= now + 2 then engine:SetReaperReady(ends) end
+    end
+    return engine:SetGCD(duration / rate, now)
 end
 local function activate()
     if not ready then return end

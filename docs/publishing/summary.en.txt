@@ -1,1 +1,1 @@
-A dynamic Blightfall countdown and voice reminder for San'layn Unholy Death Knights, with automatic single-target and AoE branches.
+Soul Reaper and Blightfall cues for San'layn Unholy DKs, with single-target timings evaluated across 279,000 simulations.

@@ -1,0 +1,274 @@
+[
+  {
+    "duration": 300,
+    "name": "default",
+    "n": 9000,
+    "seeds": [
+      51001,
+      51002,
+      51003
+    ],
+    "mean_dps": 272354.5276264925,
+    "mean_damage": 81706358.28794774,
+    "sem": 107.18679853765215,
+    "policy": {
+      "name": "default",
+      "heart_remaining": null,
+      "margin": 2,
+      "small_delay": 7,
+      "cap": false,
+      "profile_sha256": "31725bf201c8cd9f768f621b7b2445dc161a79618c7442db5ca21a77e39429a0"
+    },
+    "blightfall_count": 7.0,
+    "delta_pct": 0.0,
+    "delta_ci95_pct": 0
+  },
+  {
+    "duration": 300,
+    "name": "heart9_margin2",
+    "n": 9000,
+    "seeds": [
+      51001,
+      51002,
+      51003
+    ],
+    "mean_dps": 273108.0510982997,
+    "mean_damage": 81932415.3294899,
+    "sem": 107.98478305038088,
+    "policy": {
+      "name": "heart9_margin2",
+      "heart_remaining": 9,
+      "margin": 2,
+      "small_delay": 7,
+      "cap": false,
+      "profile_sha256": "97a5fbe60dacbf0ffc800a8273305ab98b833423b98fd6508b5ae981dd025eef"
+    },
+    "blightfall_count": 7.0,
+    "delta_pct": 0.2766700735155725,
+    "delta_ci95_pct": 0.10949502139498117
+  },
+  {
+    "duration": 300,
+    "name": "fine_small5",
+    "n": 9000,
+    "seeds": [
+      51001,
+      51002,
+      51003
+    ],
+    "mean_dps": 273418.6608065632,
+    "mean_damage": 82025598.24196896,
+    "sem": 109.9980107389172,
+    "policy": {
+      "name": "fine_small5",
+      "heart_remaining": 9,
+      "margin": 2,
+      "small_delay": 5,
+      "cap": false,
+      "profile_sha256": "94ca42b952d5b3852c0d067c1314d9a656a34a9ee7220ba43cc3f6bfd79303c9"
+    },
+    "blightfall_count": 7.0,
+    "delta_pct": 0.3907161703329942,
+    "delta_ci95_pct": 0.11052799669131996
+  },
+  {
+    "duration": 300,
+    "name": "heart8_margin2",
+    "n": 9000,
+    "seeds": [
+      51001,
+      51002,
+      51003
+    ],
+    "mean_dps": 272775.1999386609,
+    "mean_damage": 81832559.98159827,
+    "sem": 108.62294864590753,
+    "policy": {
+      "name": "heart8_margin2",
+      "heart_remaining": 8,
+      "margin": 2,
+      "small_delay": 7,
+      "cap": false,
+      "profile_sha256": "e73e6e9167f7bddad5ac00fae9cffec6aac6119e0ac78052bc979c77fb419785"
+    },
+    "blightfall_count": 7.0,
+    "delta_pct": 0.15445761663464008,
+    "delta_ci95_pct": 0.10982144311523359
+  },
+  {
+    "duration": 180,
+    "name": "default",
+    "n": 3000,
+    "seeds": [
+      52001
+    ],
+    "mean_dps": 266230.5863686006,
+    "mean_damage": 47921505.54634811,
+    "sem": 223.5999576702791,
+    "policy": {
+      "name": "default",
+      "heart_remaining": null,
+      "margin": 2,
+      "small_delay": 7,
+      "cap": false,
+      "profile_sha256": "31725bf201c8cd9f768f621b7b2445dc161a79618c7442db5ca21a77e39429a0"
+    },
+    "blightfall_count": 4.0,
+    "delta_pct": 0.0,
+    "delta_ci95_pct": 0
+  },
+  {
+    "duration": 180,
+    "name": "heart8_margin2",
+    "n": 3000,
+    "seeds": [
+      52001
+    ],
+    "mean_dps": 268544.20306057495,
+    "mean_damage": 48337956.55090349,
+    "sem": 234.46738579704166,
+    "policy": {
+      "name": "heart8_margin2",
+      "heart_remaining": 8,
+      "margin": 2,
+      "small_delay": 7,
+      "cap": false,
+      "profile_sha256": "e73e6e9167f7bddad5ac00fae9cffec6aac6119e0ac78052bc979c77fb419785"
+    },
+    "blightfall_count": 4.0,
+    "delta_pct": 0.8690273809377702,
+    "delta_ci95_pct": 0.2385254058997867
+  },
+  {
+    "duration": 180,
+    "name": "heart9_margin2",
+    "n": 3000,
+    "seeds": [
+      52001
+    ],
+    "mean_dps": 268348.0501845309,
+    "mean_damage": 48302649.03321556,
+    "sem": 231.48145554528202,
+    "policy": {
+      "name": "heart9_margin2",
+      "heart_remaining": 9,
+      "margin": 2,
+      "small_delay": 7,
+      "cap": false,
+      "profile_sha256": "97a5fbe60dacbf0ffc800a8273305ab98b833423b98fd6508b5ae981dd025eef"
+    },
+    "blightfall_count": 4.0,
+    "delta_pct": 0.7953495670097954,
+    "delta_ci95_pct": 0.23693943310155297
+  },
+  {
+    "duration": 180,
+    "name": "fine_small5",
+    "n": 3000,
+    "seeds": [
+      52001
+    ],
+    "mean_dps": 268906.9652527618,
+    "mean_damage": 48403253.74549712,
+    "sem": 235.68788356642338,
+    "policy": {
+      "name": "fine_small5",
+      "heart_remaining": 9,
+      "margin": 2,
+      "small_delay": 5,
+      "cap": false,
+      "profile_sha256": "94ca42b952d5b3852c0d067c1314d9a656a34a9ee7220ba43cc3f6bfd79303c9"
+    },
+    "blightfall_count": 4.0,
+    "delta_pct": 1.005286026923935,
+    "delta_ci95_pct": 0.23917646078938737
+  },
+  {
+    "duration": 450,
+    "name": "default",
+    "n": 3000,
+    "seeds": [
+      53001
+    ],
+    "mean_dps": 259925.39907628536,
+    "mean_damage": 116966429.58432841,
+    "sem": 147.49044844669402,
+    "policy": {
+      "name": "default",
+      "heart_remaining": null,
+      "margin": 2,
+      "small_delay": 7,
+      "cap": false,
+      "profile_sha256": "31725bf201c8cd9f768f621b7b2445dc161a79618c7442db5ca21a77e39429a0"
+    },
+    "blightfall_count": 10.0,
+    "delta_pct": 0.0,
+    "delta_ci95_pct": 0
+  },
+  {
+    "duration": 450,
+    "name": "heart8_margin2",
+    "n": 3000,
+    "seeds": [
+      53001
+    ],
+    "mean_dps": 260948.34335332122,
+    "mean_damage": 117426754.50899455,
+    "sem": 147.54926634264086,
+    "policy": {
+      "name": "heart8_margin2",
+      "heart_remaining": 8,
+      "margin": 2,
+      "small_delay": 7,
+      "cap": false,
+      "profile_sha256": "e73e6e9167f7bddad5ac00fae9cffec6aac6119e0ac78052bc979c77fb419785"
+    },
+    "blightfall_count": 10.0,
+    "delta_pct": 0.3935530273960097,
+    "delta_ci95_pct": 0.1573159807970028
+  },
+  {
+    "duration": 450,
+    "name": "heart9_margin2",
+    "n": 3000,
+    "seeds": [
+      53001
+    ],
+    "mean_dps": 260702.7973244848,
+    "mean_damage": 117316258.79601815,
+    "sem": 150.99738561963906,
+    "policy": {
+      "name": "heart9_margin2",
+      "heart_remaining": 9,
+      "margin": 2,
+      "small_delay": 7,
+      "cap": false,
+      "profile_sha256": "97a5fbe60dacbf0ffc800a8273305ab98b833423b98fd6508b5ae981dd025eef"
+    },
+    "blightfall_count": 10.0,
+    "delta_pct": 0.2990851417222551,
+    "delta_ci95_pct": 0.15916550864870938
+  },
+  {
+    "duration": 450,
+    "name": "fine_small5",
+    "n": 3000,
+    "seeds": [
+      53001
+    ],
+    "mean_dps": 261079.07719620943,
+    "mean_damage": 117485584.73829424,
+    "sem": 151.9573794664355,
+    "policy": {
+      "name": "fine_small5",
+      "heart_remaining": 9,
+      "margin": 2,
+      "small_delay": 5,
+      "cap": false,
+      "profile_sha256": "94ca42b952d5b3852c0d067c1314d9a656a34a9ee7220ba43cc3f6bfd79303c9"
+    },
+    "blightfall_count": 10.0,
+    "delta_pct": 0.4438497061171942,
+    "delta_ci95_pct": 0.1596841593528831
+  }
+]

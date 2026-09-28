@@ -5,7 +5,7 @@ import zipfile
 
 root = Path(__file__).resolve().parents[1]
 source = root / "addon"
-target = root / "dist/LycheeBlightfall-1.0.2.zip"
+target = root / "dist/LycheeBlightfall-1.0.3.zip"
 target.parent.mkdir(exist_ok=True)
 files = sorted(p for p in source.rglob("*") if p.is_file() and p.name != "ncc.json" and not any(part.startswith(".") for part in p.relative_to(source).parts))
 assert {p.relative_to(source).parts[0] for p in files} == {"LycheeBlightfall", "LycheeBlightfall_Core"}

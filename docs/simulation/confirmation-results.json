@@ -1,0 +1,3202 @@
+[
+  {
+    "phase": "confirmation",
+    "policy": {
+      "name": "default",
+      "heart_remaining": null,
+      "margin": 2,
+      "small_delay": 7,
+      "cap": false,
+      "profile_sha256": "31725bf201c8cd9f768f621b7b2445dc161a79618c7442db5ca21a77e39429a0"
+    },
+    "duration": 300,
+    "seed": 61001,
+    "health": 0,
+    "iterations": 3000,
+    "mean_dps": 272417.60366094235,
+    "dps_stddev": 10207.153240581838,
+    "dps_sem": 186.35626925928761,
+    "mean_damage": 81725281.09828271,
+    "blightfall_count": 7.0,
+    "runtime": 20.82900000002701,
+    "report": "confirmation__default__300s__61001.json",
+    "sample_sequence": [
+      {
+        "time": 2.942,
+        "name": "army_of_the_dead"
+      },
+      {
+        "time": 3.876,
+        "name": "use_item_voracious_heart_of_ulatek"
+      },
+      {
+        "time": 3.876,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 11.613,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 18.658,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 48.876,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 56.008,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 62.943,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 93.411,
+        "name": "army_of_the_dead"
+      },
+      {
+        "time": 94.59100000000001,
+        "name": "use_item_voracious_heart_of_ulatek"
+      },
+      {
+        "time": 94.59100000000001,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 103.337,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 109.52,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 139.56,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 149.559,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 155.517,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 183.321,
+        "name": "army_of_the_dead"
+      },
+      {
+        "time": 184.398,
+        "name": "use_item_voracious_heart_of_ulatek"
+      },
+      {
+        "time": 184.591,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 192.42000000000002,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 198.56,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 207.535,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 222.502,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 230.082,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 230.082,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 231.11,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 246.741,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 261.526,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 273.754,
+        "name": "army_of_the_dead"
+      },
+      {
+        "time": 274.88,
+        "name": "use_item_voracious_heart_of_ulatek"
+      },
+      {
+        "time": 274.88,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 275.082,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 281.788,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 290.009,
+        "name": "soul_reaper"
+      }
+    ]
+  },
+  {
+    "phase": "confirmation",
+    "policy": {
+      "name": "boundary_small0",
+      "heart_remaining": 9,
+      "margin": 2,
+      "small_delay": 0,
+      "cap": false,
+      "profile_sha256": "e960a61036d0e62298ee89c439fa2bbc48f981a04a12e25fc7449bc0aee0cdcc"
+    },
+    "duration": 300,
+    "seed": 61001,
+    "health": 0,
+    "iterations": 3000,
+    "mean_dps": 273956.53266416123,
+    "dps_stddev": 10143.960258762518,
+    "dps_sem": 185.20252853867242,
+    "mean_damage": 82186959.79924834,
+    "blightfall_count": 7.0,
+    "runtime": 21.0,
+    "report": "confirmation__boundary_small0__300s__61001.json",
+    "sample_sequence": [
+      {
+        "time": 2.944,
+        "name": "army_of_the_dead"
+      },
+      {
+        "time": 3.88,
+        "name": "use_item_voracious_heart_of_ulatek"
+      },
+      {
+        "time": 3.88,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 15.377,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 21.955000000000002,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 49.046,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 50.095,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 56.138,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 93.611,
+        "name": "army_of_the_dead"
+      },
+      {
+        "time": 94.715,
+        "name": "use_item_voracious_heart_of_ulatek"
+      },
+      {
+        "time": 94.715,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 106.523,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 113.423,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 139.998,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 141.046,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 147.23,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 184.22,
+        "name": "army_of_the_dead"
+      },
+      {
+        "time": 185.304,
+        "name": "use_item_voracious_heart_of_ulatek"
+      },
+      {
+        "time": 185.304,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 195.162,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 201.81900000000002,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 210.17000000000002,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 225.239,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 230.671,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 230.671,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 236.778,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 245.606,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 261.059,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 274.053,
+        "name": "army_of_the_dead"
+      },
+      {
+        "time": 275.318,
+        "name": "use_item_voracious_heart_of_ulatek"
+      },
+      {
+        "time": 276.41700000000003,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 276.41700000000003,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 283.431,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 292.051,
+        "name": "soul_reaper"
+      }
+    ]
+  },
+  {
+    "phase": "confirmation",
+    "policy": {
+      "name": "boundary_small1",
+      "heart_remaining": 9,
+      "margin": 2,
+      "small_delay": 1,
+      "cap": false,
+      "profile_sha256": "ad55409f8264a5cd64723e55350d33636a2ce48d7936004732dfccfa12e75964"
+    },
+    "duration": 300,
+    "seed": 61001,
+    "health": 0,
+    "iterations": 3000,
+    "mean_dps": 273955.35165849817,
+    "dps_stddev": 10182.915336350306,
+    "dps_sem": 185.9137476961456,
+    "mean_damage": 82186605.49754933,
+    "blightfall_count": 7.0,
+    "runtime": 21.03200000000652,
+    "report": "confirmation__boundary_small1__300s__61001.json",
+    "sample_sequence": [
+      {
+        "time": 2.942,
+        "name": "army_of_the_dead"
+      },
+      {
+        "time": 3.8770000000000002,
+        "name": "use_item_voracious_heart_of_ulatek"
+      },
+      {
+        "time": 3.8770000000000002,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 15.405000000000001,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 21.953,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 49.701,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 50.757,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 56.777,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 92.736,
+        "name": "army_of_the_dead"
+      },
+      {
+        "time": 93.95100000000001,
+        "name": "use_item_voracious_heart_of_ulatek"
+      },
+      {
+        "time": 95.009,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 105.483,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 111.519,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 140.467,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 141.531,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 147.623,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 183.52100000000002,
+        "name": "army_of_the_dead"
+      },
+      {
+        "time": 184.625,
+        "name": "use_item_voracious_heart_of_ulatek"
+      },
+      {
+        "time": 185.61,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 195.517,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 202.28,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 210.635,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 225.67000000000002,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 230.72400000000002,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 230.72400000000002,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 237.27700000000002,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 245.964,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 261.412,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 274.2,
+        "name": "army_of_the_dead"
+      },
+      {
+        "time": 275.271,
+        "name": "use_item_voracious_heart_of_ulatek"
+      },
+      {
+        "time": 276.322,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 276.322,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 283.289,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 292.02500000000003,
+        "name": "soul_reaper"
+      }
+    ]
+  },
+  {
+    "phase": "confirmation",
+    "policy": {
+      "name": "fine_small5",
+      "heart_remaining": 9,
+      "margin": 2,
+      "small_delay": 5,
+      "cap": false,
+      "profile_sha256": "94ca42b952d5b3852c0d067c1314d9a656a34a9ee7220ba43cc3f6bfd79303c9"
+    },
+    "duration": 300,
+    "seed": 61001,
+    "health": 0,
+    "iterations": 3000,
+    "mean_dps": 273454.77403787203,
+    "dps_stddev": 10326.338032917272,
+    "dps_sem": 188.53227590174384,
+    "mean_damage": 82036432.21136177,
+    "blightfall_count": 7.0,
+    "runtime": 21.04700000002049,
+    "report": "confirmation__fine_small5__300s__61001.json",
+    "sample_sequence": [
+      {
+        "time": 2.942,
+        "name": "army_of_the_dead"
+      },
+      {
+        "time": 3.8770000000000002,
+        "name": "use_item_voracious_heart_of_ulatek"
+      },
+      {
+        "time": 3.8770000000000002,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 15.349,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 22.253,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 48.775,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 53.963,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 60.098,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 92.709,
+        "name": "army_of_the_dead"
+      },
+      {
+        "time": 94.10000000000001,
+        "name": "use_item_voracious_heart_of_ulatek"
+      },
+      {
+        "time": 94.10000000000001,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 105.676,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 111.58200000000001,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 139.80100000000002,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 145.754,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 152.099,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 183.047,
+        "name": "army_of_the_dead"
+      },
+      {
+        "time": 184.16,
+        "name": "use_item_voracious_heart_of_ulatek"
+      },
+      {
+        "time": 185.133,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 195.083,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 201.779,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 209.993,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 225.507,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 230.949,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 230.949,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 237.007,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 245.894,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 261.434,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 273.502,
+        "name": "army_of_the_dead"
+      },
+      {
+        "time": 274.642,
+        "name": "use_item_voracious_heart_of_ulatek"
+      },
+      {
+        "time": 275.761,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 275.949,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 282.087,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 290.984,
+        "name": "soul_reaper"
+      }
+    ]
+  },
+  {
+    "phase": "confirmation",
+    "policy": {
+      "name": "default",
+      "heart_remaining": null,
+      "margin": 2,
+      "small_delay": 7,
+      "cap": false,
+      "profile_sha256": "31725bf201c8cd9f768f621b7b2445dc161a79618c7442db5ca21a77e39429a0"
+    },
+    "duration": 300,
+    "seed": 61002,
+    "health": 0,
+    "iterations": 3000,
+    "mean_dps": 272236.97932675376,
+    "dps_stddev": 10022.013082004469,
+    "dps_sem": 182.97608788752396,
+    "mean_damage": 81671093.7980259,
+    "blightfall_count": 7.0,
+    "runtime": 20.57799999997951,
+    "report": "confirmation__default__300s__61002.json",
+    "sample_sequence": [
+      {
+        "time": 2.945,
+        "name": "army_of_the_dead"
+      },
+      {
+        "time": 3.8770000000000002,
+        "name": "use_item_voracious_heart_of_ulatek"
+      },
+      {
+        "time": 3.8770000000000002,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 11.583,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 18.376,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 48.7,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 56.851,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 63.817,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 93.188,
+        "name": "army_of_the_dead"
+      },
+      {
+        "time": 94.20700000000001,
+        "name": "use_item_voracious_heart_of_ulatek"
+      },
+      {
+        "time": 94.20700000000001,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 101.54,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 108.256,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 139.273,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 146.49,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 152.54,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 183.315,
+        "name": "army_of_the_dead"
+      },
+      {
+        "time": 184.429,
+        "name": "use_item_voracious_heart_of_ulatek"
+      },
+      {
+        "time": 184.429,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 191.714,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 198.155,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 207.026,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 223.39600000000002,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 229.96200000000002,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 229.96200000000002,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 231.007,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 245.981,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 261.743,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 273.551,
+        "name": "army_of_the_dead"
+      },
+      {
+        "time": 274.618,
+        "name": "use_item_voracious_heart_of_ulatek"
+      },
+      {
+        "time": 275.647,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 275.647,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 282.029,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 291.547,
+        "name": "soul_reaper"
+      }
+    ]
+  },
+  {
+    "phase": "confirmation",
+    "policy": {
+      "name": "boundary_small0",
+      "heart_remaining": 9,
+      "margin": 2,
+      "small_delay": 0,
+      "cap": false,
+      "profile_sha256": "e960a61036d0e62298ee89c439fa2bbc48f981a04a12e25fc7449bc0aee0cdcc"
+    },
+    "duration": 300,
+    "seed": 61002,
+    "health": 0,
+    "iterations": 3000,
+    "mean_dps": 274160.6252193216,
+    "dps_stddev": 10411.370603976586,
+    "dps_sem": 190.0847511448054,
+    "mean_damage": 82248187.56579642,
+    "blightfall_count": 7.0,
+    "runtime": 20.60899999999674,
+    "report": "confirmation__boundary_small0__300s__61002.json",
+    "sample_sequence": [
+      {
+        "time": 2.948,
+        "name": "army_of_the_dead"
+      },
+      {
+        "time": 3.883,
+        "name": "use_item_voracious_heart_of_ulatek"
+      },
+      {
+        "time": 3.883,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 15.346,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 22.426000000000002,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 49.066,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 50.102000000000004,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 56.114000000000004,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 93.423,
+        "name": "army_of_the_dead"
+      },
+      {
+        "time": 94.521,
+        "name": "use_item_voracious_heart_of_ulatek"
+      },
+      {
+        "time": 94.521,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 106.208,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 113.053,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 139.347,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 140.561,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 146.607,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 183.246,
+        "name": "army_of_the_dead"
+      },
+      {
+        "time": 184.56900000000002,
+        "name": "use_item_voracious_heart_of_ulatek"
+      },
+      {
+        "time": 184.56900000000002,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 195.44400000000002,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 201.37800000000001,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 210.647,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 226.817,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 230.029,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 230.029,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 236.535,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 244.81,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 260.616,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 273.38100000000003,
+        "name": "army_of_the_dead"
+      },
+      {
+        "time": 274.475,
+        "name": "use_item_voracious_heart_of_ulatek"
+      },
+      {
+        "time": 275.616,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 275.616,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 282.611,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 290.467,
+        "name": "soul_reaper"
+      }
+    ]
+  },
+  {
+    "phase": "confirmation",
+    "policy": {
+      "name": "fine_small5",
+      "heart_remaining": 9,
+      "margin": 2,
+      "small_delay": 5,
+      "cap": false,
+      "profile_sha256": "94ca42b952d5b3852c0d067c1314d9a656a34a9ee7220ba43cc3f6bfd79303c9"
+    },
+    "duration": 300,
+    "seed": 61002,
+    "health": 0,
+    "iterations": 3000,
+    "mean_dps": 273175.2786223776,
+    "dps_stddev": 10311.764140330342,
+    "dps_sem": 188.26619424439318,
+    "mean_damage": 81952583.58671287,
+    "blightfall_count": 7.0,
+    "runtime": 20.735000000044238,
+    "report": "confirmation__fine_small5__300s__61002.json",
+    "sample_sequence": [
+      {
+        "time": 2.943,
+        "name": "army_of_the_dead"
+      },
+      {
+        "time": 3.7880000000000003,
+        "name": "use_item_voracious_heart_of_ulatek"
+      },
+      {
+        "time": 3.7880000000000003,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 15.108,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 22.148,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 49.144,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 54.267,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 60.321,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 93.48400000000001,
+        "name": "army_of_the_dead"
+      },
+      {
+        "time": 94.554,
+        "name": "use_item_voracious_heart_of_ulatek"
+      },
+      {
+        "time": 94.554,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 106.36,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 113.149,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 139.43800000000002,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 145.552,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 151.579,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 183.371,
+        "name": "army_of_the_dead"
+      },
+      {
+        "time": 184.568,
+        "name": "use_item_voracious_heart_of_ulatek"
+      },
+      {
+        "time": 184.568,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 195.433,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 202.217,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 210.48000000000002,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 226.231,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 229.502,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 229.568,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 235.598,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 244.568,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 260.35200000000003,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 273.399,
+        "name": "army_of_the_dead"
+      },
+      {
+        "time": 274.575,
+        "name": "use_item_voracious_heart_of_ulatek"
+      },
+      {
+        "time": 274.575,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 275.593,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 282.517,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 290.402,
+        "name": "soul_reaper"
+      }
+    ]
+  },
+  {
+    "phase": "confirmation",
+    "policy": {
+      "name": "boundary_small1",
+      "heart_remaining": 9,
+      "margin": 2,
+      "small_delay": 1,
+      "cap": false,
+      "profile_sha256": "ad55409f8264a5cd64723e55350d33636a2ce48d7936004732dfccfa12e75964"
+    },
+    "duration": 300,
+    "seed": 61002,
+    "health": 0,
+    "iterations": 3000,
+    "mean_dps": 273803.63838247274,
+    "dps_stddev": 10437.277351603858,
+    "dps_sem": 190.55774148037372,
+    "mean_damage": 82141091.5147421,
+    "blightfall_count": 7.0,
+    "runtime": 20.73499999998603,
+    "report": "confirmation__boundary_small1__300s__61002.json",
+    "sample_sequence": [
+      {
+        "time": 2.948,
+        "name": "army_of_the_dead"
+      },
+      {
+        "time": 3.883,
+        "name": "use_item_voracious_heart_of_ulatek"
+      },
+      {
+        "time": 3.883,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 15.346,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 22.426000000000002,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 49.066,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 50.102000000000004,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 56.114000000000004,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 93.423,
+        "name": "army_of_the_dead"
+      },
+      {
+        "time": 94.521,
+        "name": "use_item_voracious_heart_of_ulatek"
+      },
+      {
+        "time": 94.521,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 106.208,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 113.053,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 139.347,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 140.561,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 146.607,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 183.246,
+        "name": "army_of_the_dead"
+      },
+      {
+        "time": 184.56900000000002,
+        "name": "use_item_voracious_heart_of_ulatek"
+      },
+      {
+        "time": 184.56900000000002,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 195.44400000000002,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 201.37800000000001,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 210.647,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 226.817,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 230.029,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 230.029,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 236.535,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 244.81,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 260.616,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 273.38100000000003,
+        "name": "army_of_the_dead"
+      },
+      {
+        "time": 274.475,
+        "name": "use_item_voracious_heart_of_ulatek"
+      },
+      {
+        "time": 275.616,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 275.616,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 282.611,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 290.467,
+        "name": "soul_reaper"
+      }
+    ]
+  },
+  {
+    "phase": "confirmation",
+    "policy": {
+      "name": "default",
+      "heart_remaining": null,
+      "margin": 2,
+      "small_delay": 7,
+      "cap": false,
+      "profile_sha256": "31725bf201c8cd9f768f621b7b2445dc161a79618c7442db5ca21a77e39429a0"
+    },
+    "duration": 300,
+    "seed": 61003,
+    "health": 0,
+    "iterations": 3000,
+    "mean_dps": 272102.84811036487,
+    "dps_stddev": 10279.583599104055,
+    "dps_sem": 187.67866063298112,
+    "mean_damage": 81630854.43310961,
+    "blightfall_count": 7.0,
+    "runtime": 20.29700000002049,
+    "report": "confirmation__default__300s__61003.json",
+    "sample_sequence": [
+      {
+        "time": 2.947,
+        "name": "army_of_the_dead"
+      },
+      {
+        "time": 3.88,
+        "name": "use_item_voracious_heart_of_ulatek"
+      },
+      {
+        "time": 3.88,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 10.965,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 17.758,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 49.601,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 56.838,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 63.002,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 93.572,
+        "name": "army_of_the_dead"
+      },
+      {
+        "time": 94.73700000000001,
+        "name": "use_item_voracious_heart_of_ulatek"
+      },
+      {
+        "time": 94.73700000000001,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 102.614,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 109.036,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 140.582,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 147.624,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 154.486,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 183.812,
+        "name": "army_of_the_dead"
+      },
+      {
+        "time": 184.881,
+        "name": "use_item_voracious_heart_of_ulatek"
+      },
+      {
+        "time": 185.886,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 193.441,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 200.002,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 208.248,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 223.221,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 231.103,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 231.103,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 232.163,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 246.953,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 262.688,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 274.361,
+        "name": "army_of_the_dead"
+      },
+      {
+        "time": 275.45300000000003,
+        "name": "use_item_voracious_heart_of_ulatek"
+      },
+      {
+        "time": 276.524,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 276.524,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 283.407,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 292.095,
+        "name": "soul_reaper"
+      }
+    ]
+  },
+  {
+    "phase": "confirmation",
+    "policy": {
+      "name": "fine_small5",
+      "heart_remaining": 9,
+      "margin": 2,
+      "small_delay": 5,
+      "cap": false,
+      "profile_sha256": "94ca42b952d5b3852c0d067c1314d9a656a34a9ee7220ba43cc3f6bfd79303c9"
+    },
+    "duration": 300,
+    "seed": 61003,
+    "health": 0,
+    "iterations": 3000,
+    "mean_dps": 273292.3378163857,
+    "dps_stddev": 10220.47293109154,
+    "dps_sem": 186.59945242432602,
+    "mean_damage": 81987701.34491567,
+    "blightfall_count": 7.0,
+    "runtime": 20.45300000003772,
+    "report": "confirmation__fine_small5__300s__61003.json",
+    "sample_sequence": [
+      {
+        "time": 2.942,
+        "name": "army_of_the_dead"
+      },
+      {
+        "time": 3.858,
+        "name": "use_item_voracious_heart_of_ulatek"
+      },
+      {
+        "time": 3.858,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 15.308,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 22.391000000000002,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 49.069,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 54.089,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 61.069,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 93.262,
+        "name": "army_of_the_dead"
+      },
+      {
+        "time": 94.34700000000001,
+        "name": "use_item_voracious_heart_of_ulatek"
+      },
+      {
+        "time": 94.34700000000001,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 106.158,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 113.09100000000001,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 139.751,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 144.916,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 151.475,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 183.994,
+        "name": "army_of_the_dead"
+      },
+      {
+        "time": 185.1,
+        "name": "use_item_voracious_heart_of_ulatek"
+      },
+      {
+        "time": 185.1,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 195.532,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 202.175,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 210.427,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 225.43800000000002,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 229.893,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 230.1,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 237.071,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 245.762,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 261.117,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 274.56,
+        "name": "army_of_the_dead"
+      },
+      {
+        "time": 275.569,
+        "name": "use_item_voracious_heart_of_ulatek"
+      },
+      {
+        "time": 275.569,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 275.569,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 282.357,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 291.28000000000003,
+        "name": "soul_reaper"
+      }
+    ]
+  },
+  {
+    "phase": "confirmation",
+    "policy": {
+      "name": "boundary_small0",
+      "heart_remaining": 9,
+      "margin": 2,
+      "small_delay": 0,
+      "cap": false,
+      "profile_sha256": "e960a61036d0e62298ee89c439fa2bbc48f981a04a12e25fc7449bc0aee0cdcc"
+    },
+    "duration": 300,
+    "seed": 61003,
+    "health": 0,
+    "iterations": 3000,
+    "mean_dps": 273632.67136587284,
+    "dps_stddev": 10370.68005632343,
+    "dps_sem": 189.34184678390963,
+    "mean_damage": 82089801.40976201,
+    "blightfall_count": 7.0,
+    "runtime": 20.43699999997625,
+    "report": "confirmation__boundary_small0__300s__61003.json",
+    "sample_sequence": [
+      {
+        "time": 2.946,
+        "name": "army_of_the_dead"
+      },
+      {
+        "time": 3.8810000000000002,
+        "name": "use_item_voracious_heart_of_ulatek"
+      },
+      {
+        "time": 3.8810000000000002,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 15.421000000000001,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 21.962,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 49.67,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 50.719,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 56.879,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 93.625,
+        "name": "army_of_the_dead"
+      },
+      {
+        "time": 94.72500000000001,
+        "name": "use_item_voracious_heart_of_ulatek"
+      },
+      {
+        "time": 94.72500000000001,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 106.406,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 113.37,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 139.779,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 140.816,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 147.796,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 184.476,
+        "name": "army_of_the_dead"
+      },
+      {
+        "time": 185.582,
+        "name": "use_item_voracious_heart_of_ulatek"
+      },
+      {
+        "time": 185.582,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 195.398,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 202.002,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 210.202,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 225.221,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 230.836,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 230.836,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 237.0,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 246.024,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 261.575,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 274.38800000000003,
+        "name": "army_of_the_dead"
+      },
+      {
+        "time": 275.569,
+        "name": "use_item_voracious_heart_of_ulatek"
+      },
+      {
+        "time": 276.634,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 276.634,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 283.448,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 292.063,
+        "name": "soul_reaper"
+      }
+    ]
+  },
+  {
+    "phase": "confirmation",
+    "policy": {
+      "name": "boundary_small1",
+      "heart_remaining": 9,
+      "margin": 2,
+      "small_delay": 1,
+      "cap": false,
+      "profile_sha256": "ad55409f8264a5cd64723e55350d33636a2ce48d7936004732dfccfa12e75964"
+    },
+    "duration": 300,
+    "seed": 61003,
+    "health": 0,
+    "iterations": 3000,
+    "mean_dps": 273946.6246625611,
+    "dps_stddev": 10582.94198227156,
+    "dps_sem": 193.21720161528572,
+    "mean_damage": 82183987.39876859,
+    "blightfall_count": 7.0,
+    "runtime": 20.53100000001723,
+    "report": "confirmation__boundary_small1__300s__61003.json",
+    "sample_sequence": [
+      {
+        "time": 2.946,
+        "name": "army_of_the_dead"
+      },
+      {
+        "time": 3.8810000000000002,
+        "name": "use_item_voracious_heart_of_ulatek"
+      },
+      {
+        "time": 3.8810000000000002,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 15.421000000000001,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 21.962,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 49.67,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 50.719,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 56.879,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 93.625,
+        "name": "army_of_the_dead"
+      },
+      {
+        "time": 94.72500000000001,
+        "name": "use_item_voracious_heart_of_ulatek"
+      },
+      {
+        "time": 94.72500000000001,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 106.406,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 113.37,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 139.779,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 140.816,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 147.796,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 184.476,
+        "name": "army_of_the_dead"
+      },
+      {
+        "time": 185.582,
+        "name": "use_item_voracious_heart_of_ulatek"
+      },
+      {
+        "time": 185.582,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 195.398,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 202.002,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 210.202,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 225.221,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 230.836,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 230.836,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 237.0,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 246.024,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 261.575,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 274.38800000000003,
+        "name": "army_of_the_dead"
+      },
+      {
+        "time": 275.569,
+        "name": "use_item_voracious_heart_of_ulatek"
+      },
+      {
+        "time": 276.634,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 276.634,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 283.448,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 292.063,
+        "name": "soul_reaper"
+      }
+    ]
+  },
+  {
+    "phase": "confirmation",
+    "policy": {
+      "name": "default",
+      "heart_remaining": null,
+      "margin": 2,
+      "small_delay": 7,
+      "cap": false,
+      "profile_sha256": "31725bf201c8cd9f768f621b7b2445dc161a79618c7442db5ca21a77e39429a0"
+    },
+    "duration": 180,
+    "seed": 62001,
+    "health": 0,
+    "iterations": 3000,
+    "mean_dps": 265919.90570208395,
+    "dps_stddev": 12234.426263164272,
+    "dps_sem": 223.3690414156236,
+    "mean_damage": 47865583.02637499,
+    "blightfall_count": 4.0,
+    "runtime": 12.561999999976251,
+    "report": "confirmation__default__180s__62001.json",
+    "sample_sequence": [
+      {
+        "time": 2.945,
+        "name": "army_of_the_dead"
+      },
+      {
+        "time": 3.8770000000000002,
+        "name": "use_item_voracious_heart_of_ulatek"
+      },
+      {
+        "time": 3.8770000000000002,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 10.891,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 17.678,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 49.141,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 56.208,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 62.347,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 93.696,
+        "name": "army_of_the_dead"
+      },
+      {
+        "time": 94.837,
+        "name": "use_item_voracious_heart_of_ulatek"
+      },
+      {
+        "time": 94.837,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 102.793,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 109.13,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 119.333,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 134.386,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 139.685,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 139.837,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 146.442,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 154.67600000000002,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 170.166,
+        "name": "soul_reaper"
+      }
+    ]
+  },
+  {
+    "phase": "confirmation",
+    "policy": {
+      "name": "fine_small5",
+      "heart_remaining": 9,
+      "margin": 2,
+      "small_delay": 5,
+      "cap": false,
+      "profile_sha256": "94ca42b952d5b3852c0d067c1314d9a656a34a9ee7220ba43cc3f6bfd79303c9"
+    },
+    "duration": 180,
+    "seed": 62001,
+    "health": 0,
+    "iterations": 3000,
+    "mean_dps": 268446.5805512711,
+    "dps_stddev": 13063.102322038398,
+    "dps_sem": 238.49852709261816,
+    "mean_damage": 48320384.4992288,
+    "blightfall_count": 4.0,
+    "runtime": 12.60899999999674,
+    "report": "confirmation__fine_small5__180s__62001.json",
+    "sample_sequence": [
+      {
+        "time": 2.943,
+        "name": "army_of_the_dead"
+      },
+      {
+        "time": 3.888,
+        "name": "use_item_voracious_heart_of_ulatek"
+      },
+      {
+        "time": 3.888,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 15.472,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 22.691,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 49.307,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 54.494,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 60.575,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 93.11200000000001,
+        "name": "army_of_the_dead"
+      },
+      {
+        "time": 94.139,
+        "name": "use_item_voracious_heart_of_ulatek"
+      },
+      {
+        "time": 94.139,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 105.566,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 111.523,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 120.678,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 135.984,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 139.297,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 139.30700000000002,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 145.43200000000002,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 154.238,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 170.011,
+        "name": "soul_reaper"
+      }
+    ]
+  },
+  {
+    "phase": "confirmation",
+    "policy": {
+      "name": "boundary_small1",
+      "heart_remaining": 9,
+      "margin": 2,
+      "small_delay": 1,
+      "cap": false,
+      "profile_sha256": "ad55409f8264a5cd64723e55350d33636a2ce48d7936004732dfccfa12e75964"
+    },
+    "duration": 180,
+    "seed": 62001,
+    "health": 0,
+    "iterations": 3000,
+    "mean_dps": 268814.6081938766,
+    "dps_stddev": 12645.407893574446,
+    "dps_sem": 230.87250507215367,
+    "mean_damage": 48386629.47489797,
+    "blightfall_count": 4.0,
+    "runtime": 12.51600000000326,
+    "report": "confirmation__boundary_small1__180s__62001.json",
+    "sample_sequence": [
+      {
+        "time": 2.943,
+        "name": "army_of_the_dead"
+      },
+      {
+        "time": 3.878,
+        "name": "use_item_voracious_heart_of_ulatek"
+      },
+      {
+        "time": 3.878,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 15.446,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 21.952,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 48.672000000000004,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 49.907000000000004,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 56.829,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 93.09100000000001,
+        "name": "army_of_the_dead"
+      },
+      {
+        "time": 94.21600000000001,
+        "name": "use_item_voracious_heart_of_ulatek"
+      },
+      {
+        "time": 94.21600000000001,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 105.869,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 112.718,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 120.946,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 135.993,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 139.19,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 139.216,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 145.868,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 155.129,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 170.881,
+        "name": "soul_reaper"
+      }
+    ]
+  },
+  {
+    "phase": "confirmation",
+    "policy": {
+      "name": "boundary_small0",
+      "heart_remaining": 9,
+      "margin": 2,
+      "small_delay": 0,
+      "cap": false,
+      "profile_sha256": "e960a61036d0e62298ee89c439fa2bbc48f981a04a12e25fc7449bc0aee0cdcc"
+    },
+    "duration": 180,
+    "seed": 62001,
+    "health": 0,
+    "iterations": 3000,
+    "mean_dps": 269102.65856270597,
+    "dps_stddev": 13170.214068019748,
+    "dps_sem": 240.4541110742098,
+    "mean_damage": 48438478.54128712,
+    "blightfall_count": 4.0,
+    "runtime": 12.672000000020489,
+    "report": "confirmation__boundary_small0__180s__62001.json",
+    "sample_sequence": [
+      {
+        "time": 2.943,
+        "name": "army_of_the_dead"
+      },
+      {
+        "time": 3.878,
+        "name": "use_item_voracious_heart_of_ulatek"
+      },
+      {
+        "time": 3.878,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 15.446,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 21.952,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 48.672000000000004,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 49.907000000000004,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 56.829,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 93.09100000000001,
+        "name": "army_of_the_dead"
+      },
+      {
+        "time": 94.21600000000001,
+        "name": "use_item_voracious_heart_of_ulatek"
+      },
+      {
+        "time": 94.21600000000001,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 105.869,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 112.718,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 120.946,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 135.993,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 139.19,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 139.216,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 145.868,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 155.129,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 170.881,
+        "name": "soul_reaper"
+      }
+    ]
+  },
+  {
+    "phase": "confirmation",
+    "policy": {
+      "name": "default",
+      "heart_remaining": null,
+      "margin": 2,
+      "small_delay": 7,
+      "cap": false,
+      "profile_sha256": "31725bf201c8cd9f768f621b7b2445dc161a79618c7442db5ca21a77e39429a0"
+    },
+    "duration": 450,
+    "seed": 63001,
+    "health": 0,
+    "iterations": 3000,
+    "mean_dps": 260051.71632468485,
+    "dps_stddev": 7958.69894070792,
+    "dps_sem": 145.3052979406066,
+    "mean_damage": 117023272.3461082,
+    "blightfall_count": 10.0,
+    "runtime": 31.06300000002375,
+    "report": "confirmation__default__450s__63001.json",
+    "sample_sequence": [
+      {
+        "time": 2.943,
+        "name": "army_of_the_dead"
+      },
+      {
+        "time": 3.8890000000000002,
+        "name": "use_item_voracious_heart_of_ulatek"
+      },
+      {
+        "time": 3.8890000000000002,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 11.643,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 18.433,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 49.428000000000004,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 57.121,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 63.694,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 93.307,
+        "name": "army_of_the_dead"
+      },
+      {
+        "time": 94.328,
+        "name": "use_item_voracious_heart_of_ulatek"
+      },
+      {
+        "time": 94.328,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 101.82000000000001,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 108.183,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 139.929,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 147.0,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 153.006,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 184.155,
+        "name": "army_of_the_dead"
+      },
+      {
+        "time": 185.26,
+        "name": "use_item_voracious_heart_of_ulatek"
+      },
+      {
+        "time": 185.26,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 192.369,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 198.74,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 230.24200000000002,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 237.276,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 244.288,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 274.42,
+        "name": "army_of_the_dead"
+      },
+      {
+        "time": 275.419,
+        "name": "use_item_voracious_heart_of_ulatek"
+      },
+      {
+        "time": 275.419,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 282.694,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 289.149,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 298.09000000000003,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 313.177,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 320.927,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 320.927,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 321.972,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 336.877,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 352.722,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 364.56100000000004,
+        "name": "army_of_the_dead"
+      },
+      {
+        "time": 365.612,
+        "name": "use_item_voracious_heart_of_ulatek"
+      },
+      {
+        "time": 366.55,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 366.55,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 373.648,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 381.862,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 397.279,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 411.346,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 411.55,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 418.312,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 426.68600000000004,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 441.52,
+        "name": "soul_reaper"
+      }
+    ]
+  },
+  {
+    "phase": "confirmation",
+    "policy": {
+      "name": "fine_small5",
+      "heart_remaining": 9,
+      "margin": 2,
+      "small_delay": 5,
+      "cap": false,
+      "profile_sha256": "94ca42b952d5b3852c0d067c1314d9a656a34a9ee7220ba43cc3f6bfd79303c9"
+    },
+    "duration": 450,
+    "seed": 63001,
+    "health": 0,
+    "iterations": 3000,
+    "mean_dps": 261281.5745900961,
+    "dps_stddev": 8181.725043860165,
+    "dps_sem": 149.37717886090522,
+    "mean_damage": 117576708.56554341,
+    "blightfall_count": 10.0,
+    "runtime": 31.030999999959022,
+    "report": "confirmation__fine_small5__450s__63001.json",
+    "sample_sequence": [
+      {
+        "time": 2.943,
+        "name": "army_of_the_dead"
+      },
+      {
+        "time": 3.891,
+        "name": "use_item_voracious_heart_of_ulatek"
+      },
+      {
+        "time": 3.891,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 15.382,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 22.488,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 49.217,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 54.353,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 60.369,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 93.315,
+        "name": "army_of_the_dead"
+      },
+      {
+        "time": 94.426,
+        "name": "use_item_voracious_heart_of_ulatek"
+      },
+      {
+        "time": 94.426,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 106.371,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 113.303,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 139.874,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 145.949,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 152.0,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 186.222,
+        "name": "army_of_the_dead"
+      },
+      {
+        "time": 187.229,
+        "name": "use_item_voracious_heart_of_ulatek"
+      },
+      {
+        "time": 187.229,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 200.907,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 207.721,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 232.816,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 238.4,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 245.359,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 276.939,
+        "name": "army_of_the_dead"
+      },
+      {
+        "time": 278.035,
+        "name": "use_item_voracious_heart_of_ulatek"
+      },
+      {
+        "time": 278.035,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 289.997,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 296.024,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 305.307,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 320.291,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 323.514,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 323.514,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 329.65000000000003,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 338.47700000000003,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 355.07,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 366.97,
+        "name": "army_of_the_dead"
+      },
+      {
+        "time": 368.136,
+        "name": "use_item_voracious_heart_of_ulatek"
+      },
+      {
+        "time": 369.178,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 369.178,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 375.26800000000003,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 384.096,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 399.938,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 414.211,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 414.211,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 421.207,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 429.772,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 446.579,
+        "name": "soul_reaper"
+      }
+    ]
+  },
+  {
+    "phase": "confirmation",
+    "policy": {
+      "name": "boundary_small1",
+      "heart_remaining": 9,
+      "margin": 2,
+      "small_delay": 1,
+      "cap": false,
+      "profile_sha256": "ad55409f8264a5cd64723e55350d33636a2ce48d7936004732dfccfa12e75964"
+    },
+    "duration": 450,
+    "seed": 63001,
+    "health": 0,
+    "iterations": 3000,
+    "mean_dps": 261697.85422637692,
+    "dps_stddev": 8437.305593180397,
+    "dps_sem": 154.043419931647,
+    "mean_damage": 117764034.40186927,
+    "blightfall_count": 10.0,
+    "runtime": 31.07799999997951,
+    "report": "confirmation__boundary_small1__450s__63001.json",
+    "sample_sequence": [
+      {
+        "time": 2.947,
+        "name": "army_of_the_dead"
+      },
+      {
+        "time": 3.8810000000000002,
+        "name": "use_item_voracious_heart_of_ulatek"
+      },
+      {
+        "time": 3.8810000000000002,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 15.321,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 22.117,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 48.691,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 49.932,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 56.93,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 93.715,
+        "name": "army_of_the_dead"
+      },
+      {
+        "time": 94.839,
+        "name": "use_item_voracious_heart_of_ulatek"
+      },
+      {
+        "time": 94.839,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 106.801,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 112.758,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 139.645,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 140.909,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 147.056,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 183.981,
+        "name": "army_of_the_dead"
+      },
+      {
+        "time": 185.149,
+        "name": "use_item_voracious_heart_of_ulatek"
+      },
+      {
+        "time": 185.149,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 196.976,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 203.894,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 230.941,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 231.978,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 238.953,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 274.439,
+        "name": "army_of_the_dead"
+      },
+      {
+        "time": 275.605,
+        "name": "use_item_voracious_heart_of_ulatek"
+      },
+      {
+        "time": 276.75,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 289.45,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 295.573,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 305.255,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 320.455,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 321.538,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 321.75,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 328.612,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 337.382,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 353.12,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 364.23900000000003,
+        "name": "army_of_the_dead"
+      },
+      {
+        "time": 365.568,
+        "name": "use_item_voracious_heart_of_ulatek"
+      },
+      {
+        "time": 366.613,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 366.75,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 373.18600000000004,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 382.375,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 397.538,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 412.536,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 412.536,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 419.382,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 427.555,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 442.793,
+        "name": "soul_reaper"
+      }
+    ]
+  },
+  {
+    "phase": "confirmation",
+    "policy": {
+      "name": "boundary_small0",
+      "heart_remaining": 9,
+      "margin": 2,
+      "small_delay": 0,
+      "cap": false,
+      "profile_sha256": "e960a61036d0e62298ee89c439fa2bbc48f981a04a12e25fc7449bc0aee0cdcc"
+    },
+    "duration": 450,
+    "seed": 63001,
+    "health": 0,
+    "iterations": 3000,
+    "mean_dps": 261749.38323083674,
+    "dps_stddev": 8383.814758640096,
+    "dps_sem": 153.06681537506364,
+    "mean_damage": 117787222.45387636,
+    "blightfall_count": 10.0,
+    "runtime": 31.28100000001723,
+    "report": "confirmation__boundary_small0__450s__63001.json",
+    "sample_sequence": [
+      {
+        "time": 2.947,
+        "name": "army_of_the_dead"
+      },
+      {
+        "time": 3.8810000000000002,
+        "name": "use_item_voracious_heart_of_ulatek"
+      },
+      {
+        "time": 3.8810000000000002,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 15.321,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 22.117,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 48.691,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 49.932,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 56.93,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 93.715,
+        "name": "army_of_the_dead"
+      },
+      {
+        "time": 94.839,
+        "name": "use_item_voracious_heart_of_ulatek"
+      },
+      {
+        "time": 94.839,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 106.801,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 112.758,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 139.645,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 140.909,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 147.056,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 183.981,
+        "name": "army_of_the_dead"
+      },
+      {
+        "time": 185.149,
+        "name": "use_item_voracious_heart_of_ulatek"
+      },
+      {
+        "time": 185.149,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 196.976,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 203.894,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 230.941,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 231.978,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 238.953,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 274.439,
+        "name": "army_of_the_dead"
+      },
+      {
+        "time": 275.605,
+        "name": "use_item_voracious_heart_of_ulatek"
+      },
+      {
+        "time": 276.75,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 289.45,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 295.573,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 305.255,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 320.455,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 321.538,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 321.75,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 328.612,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 337.382,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 353.12,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 364.23900000000003,
+        "name": "army_of_the_dead"
+      },
+      {
+        "time": 365.568,
+        "name": "use_item_voracious_heart_of_ulatek"
+      },
+      {
+        "time": 366.613,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 366.75,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 373.18600000000004,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 382.375,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 397.538,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 412.536,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 412.536,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 419.382,
+        "name": "dark_transformation"
+      },
+      {
+        "time": 427.555,
+        "name": "soul_reaper"
+      },
+      {
+        "time": 442.793,
+        "name": "soul_reaper"
+      }
+    ]
+  }
+]

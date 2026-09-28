@@ -9,14 +9,27 @@ PUB = ROOT / "docs/publishing"
 VERSION = re.search(r"^## Version: (.+)$", (ROOT / "addon/LycheeBlightfall/LycheeBlightfall.toc").read_text(encoding="utf-8"), re.M).group(1).strip()
 
 def render_markdown(source):
-    blocks, listing = [], False
+    blocks, listing, table = [], False, False
     for line in source.splitlines():
+        if not line.startswith('|') and table:
+            blocks.append('</tbody></table>'); table = False
         if not line.startswith("- ") and listing:
             blocks.append("</ul>"); listing = False
         if not line.strip():
             continue
         value = html.escape(line)
-        if line.startswith("## "):
+        if line.startswith('|'):
+            cells = [cell.strip() for cell in line.strip('|').split('|')]
+            if all(re.fullmatch(r':?-+:?', cell) for cell in cells):
+                continue
+            tag = 'td' if table else 'th'
+            if not table:
+                blocks.append('<table><tbody>'); table = True
+            blocks.append('<tr>' + ''.join(f'<{tag}>'+html.escape(c)+f'</{tag}>' for c in cells)+'</tr>')
+        elif re.fullmatch(r'!\[.*\]\(https://[^ ]+\)', line):
+            alt, url = re.fullmatch(r'!\[(.*)\]\((https://[^ ]+)\)', line).groups()
+            blocks.append('<p><img style="max-width:100%;height:auto" src="'+html.escape(url,quote=True)+'" alt="'+html.escape(alt,quote=True)+'"></p>')
+        elif line.startswith("## "):
             blocks.append("<h2>" + html.escape(line[3:]) + "</h2>")
         elif line.startswith("# "):
             blocks.append("<h1>" + html.escape(line[2:]) + "</h1>")
@@ -28,6 +41,8 @@ def render_markdown(source):
             blocks.append("<p>" + value + "</p>")
     if listing:
         blocks.append("</ul>")
+    if table:
+        blocks.append('</tbody></table>')
     return "\n".join(blocks) + "\n"
 
 for lang, filename in [("zh-CN", "README.md"), ("en", "README.en.md")]:
@@ -42,8 +57,8 @@ for lang, filename in [("zh-CN", "README.md"), ("en", "README.en.md")]:
 
 metadata = {
     "name": "[荔枝]智能吞病收割提醒", "name_en": "Lychee Blightfall", "version": VERSION,
-    "summary_zh": "萨莱因邪 DK 吞病倒计时与语音提醒，随施法更新建议时间，自动区分单体和群怪。",
-    "summary_en": "A dynamic Blightfall countdown and voice reminder for San'layn Unholy Death Knights, with automatic single-target and AoE branches.",
+    "summary_zh": "萨莱因邪 DK 收割与吞病语音倒计时，乌心分支与单体时机经 27.9 万次模拟筛选、复测。",
+    "summary_en": "Soul Reaper and Blightfall cues for San'layn Unholy DKs, with single-target timings evaluated across 279,000 simulations.",
     "branch": "retail", "interface": 120100, "game_version": "12.1.0",
     "repository": "https://github.com/Follen/LycheeBlightfall",
     "package": f"dist/LycheeBlightfall-{VERSION}.zip", "cover": "docs/media/release-cover.png",

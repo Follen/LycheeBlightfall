@@ -20,7 +20,7 @@ end
 function Engine:ResetCycle()
     self.armed = false
     self.dtEnd, self.srEnd, self.heartEnd = nil, nil, nil
-    self.reaperAt = nil
+    self.reaperAt, self.dtStart, self.reaperReadyAt = nil, nil, nil
     self.reaperTextShown, self.reaperVoiced = false, false
     self.textShown, self.voiced = false, false
 end
@@ -59,6 +59,11 @@ function Engine:SetGCD(duration, now)
     return changed
 end
 
+function Engine:SetReaperReady(at)
+    if not self.armed or self.reaperAt then return end
+    self.reaperReadyAt = at
+end
+
 function Engine:Cast(spellID, now, castGUID, useVisceral)
     if not self.TRACKED[spellID] then return false end
     if castGUID and castGUID ~= "" then
@@ -74,9 +79,8 @@ function Engine:Cast(spellID, now, castGUID, useVisceral)
         self:ResetCycle()
         if heartEnd and heartEnd > now then self.heartEnd = heartEnd end
         self.armed, self.dtEnd = true, now + 15
-        -- SimC ST: DT active and its cooldown <38s. Retail base CD is 45s.
-        -- Pet-buff extensions do not move this cooldown-derived threshold.
-        self.reaperAt = now + 7.01
+        self.dtStart = now
+        self.reaperAt = nil
         return true
     end
     if spellID == self.HEART then
@@ -105,19 +109,25 @@ function Engine:Cast(spellID, now, castGUID, useVisceral)
     return consumed or self.EXTENDERS[spellID] == true
 end
 
-function Engine:UpdateReaper(now, options, useReaper)
+function Engine:UpdateReaper(now, options, useReaper, aoe)
     if not self.armed or not options.reaperEnabled or not useReaper
-        or self.srEnd or not self.reaperAt or now >= self.dtEnd then return nil end
+        or self.srEnd or not self.dtStart or now >= self.dtEnd then return nil end
     if not options.textEnabled and not options.soundEnabled then return nil end
-    local state = { target = self.reaperAt, wake = self.dtEnd, action = "reaper" }
+    -- Heart optimization is shared by ST/AOE; damage evidence is ST only.
+    -- First refresh follows Runtime's public GCD observation. Freeze the next
+    -- action slot, so later spender GCDs cannot postpone an already due cue.
+    self.reaperAt = self.reaperAt or self.reaperReadyAt or self.dtStart + self:GCD(now)
+    local target = self.heartEnd and self.heartEnd > now and self.heartEnd - 9
+        or (aoe and self.reaperAt or self.dtStart + 7.01)
+    local state = { target = target, wake = self.dtEnd, action = "reaper" }
     if options.textEnabled then
-        local at = self.reaperAt - options.textLead
+        local at = target - options.textLead
         if self.reaperTextShown or now >= at then
             self.reaperTextShown, state.show = true, true
         else state.wake = math.min(state.wake, at) end
     end
     if options.soundEnabled and not self.reaperVoiced then
-        local at = self.reaperAt - options.soundLead
+        local at = target - options.soundLead
         if now >= at then self.reaperVoiced, state.voice = true, true
         else state.wake = math.min(state.wake, at) end
     end
@@ -127,6 +137,12 @@ end
 function Engine:Update(now, options, useReaper, aoe, useVisceral)
     if not self.armed then return nil end
     if not options.textEnabled and not options.soundEnabled then return nil end
+    if not aoe and useReaper and not self.srEnd then
+        -- Never announce a fictitious ST swallow before Reaper actually lands.
+        -- Keep a single expiry wake so a missed cast cannot leave a stale cue.
+        if now >= self.dtEnd then self:ResetCycle(); return nil end
+        return { wake = self.dtEnd, waitingReaper = true }
+    end
     local deadline, reason = self.dtEnd, "dark_transformation"
     if aoe then
         -- AOE ignores Soul Reaper. Only an observed public Heart use supplies

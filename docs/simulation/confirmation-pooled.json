@@ -1,0 +1,178 @@
+[
+  {
+    "duration": 300,
+    "name": "default",
+    "n": 9000,
+    "mean_dps": 272252.477032687,
+    "mean_damage": 81675743.10980608,
+    "sem": 107.19962364338328,
+    "seeds": [
+      61001,
+      61002,
+      61003
+    ],
+    "blightfall_count": 7.0,
+    "delta_pct": 0.0,
+    "ci95_half_pct": 0
+  },
+  {
+    "duration": 300,
+    "name": "boundary_small0",
+    "n": 9000,
+    "mean_dps": 273916.6097497852,
+    "mean_damage": 82174982.9249356,
+    "sem": 108.68208542155078,
+    "seeds": [
+      61001,
+      61002,
+      61003
+    ],
+    "blightfall_count": 7.0,
+    "delta_pct": 0.6112461253744428,
+    "ci95_half_pct": 0.10989939986012771
+  },
+  {
+    "duration": 300,
+    "name": "boundary_small1",
+    "n": 9000,
+    "mean_dps": 273901.871567844,
+    "mean_damage": 82170561.47035334,
+    "sem": 109.64075195366283,
+    "seeds": [
+      61001,
+      61002,
+      61003
+    ],
+    "blightfall_count": 7.0,
+    "delta_pct": 0.60583270100385,
+    "ci95_half_pct": 0.11039182249009867
+  },
+  {
+    "duration": 300,
+    "name": "fine_small5",
+    "n": 9000,
+    "mean_dps": 273307.46349221177,
+    "mean_damage": 81992239.04766344,
+    "sem": 108.42178674915252,
+    "seeds": [
+      61001,
+      61002,
+      61003
+    ],
+    "blightfall_count": 7.0,
+    "delta_pct": 0.3875029792284046,
+    "ci95_half_pct": 0.10976606423440642
+  },
+  {
+    "duration": 180,
+    "name": "default",
+    "n": 3000,
+    "mean_dps": 265919.90570208395,
+    "mean_damage": 47865583.02637499,
+    "sem": 223.3690414156236,
+    "seeds": [
+      62001
+    ],
+    "blightfall_count": 4.0,
+    "delta_pct": 0.0,
+    "ci95_half_pct": 0
+  },
+  {
+    "duration": 180,
+    "name": "fine_small5",
+    "n": 3000,
+    "mean_dps": 268446.5805512711,
+    "mean_damage": 48320384.4992288,
+    "sem": 238.49852709261816,
+    "seeds": [
+      62001
+    ],
+    "blightfall_count": 4.0,
+    "delta_pct": 0.9501638632565701,
+    "ci95_half_pct": 0.24084663048421254
+  },
+  {
+    "duration": 180,
+    "name": "boundary_small1",
+    "n": 3000,
+    "mean_dps": 268814.6081938766,
+    "mean_damage": 48386629.47489797,
+    "sem": 230.8725050721537,
+    "seeds": [
+      62001
+    ],
+    "blightfall_count": 4.0,
+    "delta_pct": 1.0885617923750424,
+    "ci95_half_pct": 0.23677526059168325
+  },
+  {
+    "duration": 180,
+    "name": "boundary_small0",
+    "n": 3000,
+    "mean_dps": 269102.65856270597,
+    "mean_damage": 48438478.54128712,
+    "sem": 240.4541110742098,
+    "seeds": [
+      62001
+    ],
+    "blightfall_count": 4.0,
+    "delta_pct": 1.196884021231459,
+    "ci95_half_pct": 0.24190067663759232
+  },
+  {
+    "duration": 450,
+    "name": "default",
+    "n": 3000,
+    "mean_dps": 260051.71632468485,
+    "mean_damage": 117023272.3461082,
+    "sem": 145.3052979406066,
+    "seeds": [
+      63001
+    ],
+    "blightfall_count": 10.0,
+    "delta_pct": 0.0,
+    "ci95_half_pct": 0
+  },
+  {
+    "duration": 450,
+    "name": "fine_small5",
+    "n": 3000,
+    "mean_dps": 261281.5745900961,
+    "mean_damage": 117576708.56554341,
+    "sem": 149.37717886090525,
+    "seeds": [
+      63001
+    ],
+    "blightfall_count": 10.0,
+    "delta_pct": 0.47292834009822204,
+    "ci95_half_pct": 0.15706416766786385
+  },
+  {
+    "duration": 450,
+    "name": "boundary_small1",
+    "n": 3000,
+    "mean_dps": 261697.85422637692,
+    "mean_damage": 117764034.40186927,
+    "sem": 154.043419931647,
+    "seeds": [
+      63001
+    ],
+    "blightfall_count": 10.0,
+    "delta_pct": 0.6330040520235558,
+    "ci95_half_pct": 0.15960397371986404
+  },
+  {
+    "duration": 450,
+    "name": "boundary_small0",
+    "n": 3000,
+    "mean_dps": 261749.38323083674,
+    "mean_damage": 117787222.45387636,
+    "sem": 153.06681537506367,
+    "seeds": [
+      63001
+    ],
+    "blightfall_count": 10.0,
+    "delta_pct": 0.6528189585306432,
+    "ci95_half_pct": 0.15906933545250623
+  }
+]

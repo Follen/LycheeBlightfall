@@ -1,23 +1,45 @@
 <h1>Lychee Blightfall</h1>
-<p>A Blightfall reminder for San&#x27;layn Unholy Death Knights on Retail. A short countdown and voice cue help you prepare for your next Blightfall without watching another timer.</p>
-<h2>Follows your burst window</h2>
-<p>The addon estimates timing from your successful casts, including Dark Transformation and Soul Reaper. Death Coil and Epidemic extensions update the recommendation as you play. Once the text appears, it stays visible for the current cycle; the voice cue plays at most once per cycle.</p>
-<p>Single-target and AoE behavior switch automatically using visible enemy nameplates that are in combat. Keep enemy nameplates enabled for this feature.</p>
-<p>Since 1.0.1, an optional Soul Reaper reminder uses an approximately 7-second delay after Dark Transformation, with a default 3-second lead, in both single-target and AoE combat. It requires Soul Reaper and Reaping, cancels when Soul Reaper is cast, and does not move with pet-buff extensions. Blightfall has priority. The unified AoE cue is an addon preference, not SimC&#x27;s AoE instruction to delay Soul Reaper.</p>
-<h2>Make the reminder yours</h2>
+<p>Soul Reaper and Blightfall countdowns and voice cues for Retail San&#x27;layn Unholy Death Knights. The in-game UI and bundled voices are Chinese.</p>
+<h2>Soul Reaper</h2>
 <ul>
-<li>Text and voice default to 3 seconds before the recommended timing, with separate toggles and lead-time settings.</li>
-<li>Move the transparent reminder and adjust its font size.</li>
-<li>Includes a default voice cue, SharedMedia sound selection, and sound preview.</li>
-<li>Soul Reaper has its own reminder toggle and sound choice. Both reminders share position, text and voice lead settings.</li>
-<li>Open Esc → Options → AddOns → [荔枝]智能吞病收割提醒. Unlocking closes the settings panel; drag the reminder and click the finish button to lock it.</li>
+<li>With an observed Heart use: single-target and AoE both prepare Reaper with about 9 seconds left on its 20-second window, approximately 11 seconds after using the trinket.</li>
+<li>Without Heart, single-target keeps SimC&#x27;s default: about 7 seconds after Dark Transformation.</li>
+<li>Without Heart, AoE adds no extra 7-second delay. Prepare Reaper early; the countdown uses the publicly readable GCD where available. Higher-priority actions and cast requirements still matter.</li>
+<li>Transformation extensions do not keep delaying Reaper. Successfully casting Reaper cancels its cue.</li>
 </ul>
-<h2>Getting started</h2>
-<p>For Retail 12.1, Unholy specialization, the San&#x27;layn hero tree, and the Blightfall talent. It activates when those requirements are met. WeakAuras and Lychee Launcher are not required.</p>
-<p>Install through your addon client, or place both LycheeBlightfall and LycheeBlightfall_Core folders in the Retail Interface/AddOns directory. Keep both enabled and restart the game after the first installation.</p>
-<p>The current in-game interface, reminder text, and included voice are in Chinese. “准备吞病” means “Prepare for Blightfall.” This English page documents the existing addon; it does not imply an English UI or voice pack.</p>
-<h2>About the timing</h2>
-<p>This is a cast-based estimate, not an automatic rotation or a guarantee of maximum damage. Target changes, pet state changes, and enemies outside nameplate range can affect the recommendation. Use your judgment in combat. Reloading the UI during combat clears the current estimate; the next Dark Transformation starts a new cycle.</p>
+<h2>Blightfall</h2>
+<ul>
+<li>Single-target with Reaping and Soul Reaper waits for the actual Reaper cast, then aims about two GCDs before its estimated 8-second window ends. Later transformation extensions do not move that deadline.</li>
+<li>Without an observed Reaper, no premature single-target swallow cue. Disabling the Reaper reminder does not change this rule.</li>
+<li>AoE uses the earlier still-active transformation or observed Heart expiry, regardless of Reaper. After Heart expires, an active transformation can still provide a window.</li>
+<li>Without the required talents, use transformation. Unreadable GCD duration falls back to 1.5 seconds; recent spender GCD occupancy is considered.</li>
+</ul>
+<h2>Observations and limits</h2>
+<p>Successful casts start estimates: transformation 15 seconds, Heart 20 seconds, Reaper 8 seconds. Coil, Epidemic and supported replacements extend an active inferred transformation by one second.</p>
+<p>At least three visible, living, attackable non-player nameplates publicly known to be in combat select AoE. Otherwise use single-target. Hidden or secret states are never invented; enable enemy nameplates.</p>
+<p>With Visceral Strength selected, a public Sudden Doom overlay followed by a spender infers five seconds of strength. Ordinary casts do not fabricate refreshes; strength does not change the established swallow deadline or add a spender prompt.</p>
+<p>Blightfall, death, leaving combat and eligibility changes reset the cycle. Reloading loses history until the next transformation. The addon cannot guarantee availability or hits, inspect secret health, or automatically reproduce execute behavior.</p>
+<h2>Simulation evidence</h2>
+<p>93 batches and 279,000 measured iterations across search and validation, 3000 per batch. Official prebuilt SimC 1210-01 / 4c7c736, MID2 San&#x27;layn, Heart plus Zul&#x27;jin trinket, one target, full-fight damage including pets.</p>
+<p>The table matches this release: Heart remaining 9 seconds; default single-target timing without Heart; Blightfall margin of two GCDs.</p>
+<table><tbody>
+<tr><th>Duration</th><th>Default total damage</th><th>Selected policy</th><th>Gain</th></tr>
+<tr><td>180 seconds</td><td>47,921,506</td><td>48,302,649</td><td>+0.80%</td></tr>
+<tr><td>300 seconds</td><td>81,706,358</td><td>81,932,415</td><td>+0.28%</td></tr>
+<tr><td>450 seconds</td><td>116,966,430</td><td>117,316,259</td><td>+0.30%</td></tr>
+</tbody></table>
+<p>300 seconds pools three fresh seeds, 9000 iterations per policy; other durations use 3000 each. These are complete SimC APL results, not addon-assisted gameplay gains. AoE shares the Heart cue by design but has no tested damage gain. SimC retained execute logic below 35%; the addon cannot read secret health. The model has an unverified rune proc-target assumption shared by all policies.</p>
+<p><img style="max-width:100%;height:auto" src="https://cdn8.newbeebox.com/user_media/default/558213/b637b6ef720305b12e0dc56627576ecd.png" alt="Simulation count and results"></p>
+<p>Data: https://github.com/Follen/LycheeBlightfall/tree/v1.0.3/docs/simulation</p>
+<h2>Setup</h2>
+<ul>
+<li>Esc → Options → AddOns → [荔枝]智能吞病收割提醒.</li>
+<li>Text and voice default to a three-second lead. If less notice is available, cue immediately without adding a delay.</li>
+<li>Separate SharedMedia sounds, an optional Reaper cue, and movable transparent text. Blightfall takes priority; each voice plays once per cycle.</li>
+<li>Unlocking closes settings; click Finish after positioning.</li>
+<li>Core loads only for Unholy / San&#x27;layn with Blightfall. Event-driven scheduling; countdown updates only while visible.</li>
+<li>Install both LycheeBlightfall and LycheeBlightfall_Core. Reload after updating; restart after first installation.</li>
+</ul>
 <h2>Thanks</h2>
 <p>小当家 Chef.</p>
 <p>Source and feedback: https://github.com/Follen/LycheeBlightfall</p>
