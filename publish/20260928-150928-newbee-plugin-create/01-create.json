@@ -1,0 +1,40 @@
+{
+  "channel": "official-ncc",
+  "working_directory": "D:\\Code\\wow\\addons\\Lychee Blightfall",
+  "argv": [
+    "wow",
+    "addons",
+    "create",
+    "--name",
+    "荔枝邪DK吞病",
+    "--description",
+    "@D:\\Code\\wow\\addons\\Lychee Blightfall\\docs\\publishing\\description.zh-CN.md",
+    "--categories",
+    "1020,1019",
+    "--logo",
+    "D:\\Code\\wow\\addons\\Lychee Blightfall\\docs\\media\\logo.png",
+    "--screenshots",
+    "D:\\Code\\wow\\addons\\Lychee Blightfall\\docs\\media\\release-cover.png,D:\\Code\\wow\\addons\\Lychee Blightfall\\docs\\media\\combat.png,D:\\Code\\wow\\addons\\Lychee Blightfall\\docs\\media\\settings.png,D:\\Code\\wow\\addons\\Lychee Blightfall\\docs\\media\\positioning.png",
+    "--intro",
+    "萨莱因邪 DK 吞病倒计时与语音提醒，随施法更新建议时间，自动区分单体和群怪。",
+    "--home-page",
+    "GitHub",
+    "--home-page-link",
+    "https://github.com/Follen/LycheeBlightfall",
+    "--origin",
+    "original",
+    "-o",
+    "json"
+  ],
+  "business": {
+    "visibility": "public",
+    "version": "1.0.0",
+    "game_versions": [
+      "12.1.0"
+    ],
+    "channel_dynamic": false,
+    "origin": "original",
+    "subscription": "none"
+  },
+  "expected_readback": "info: exact name, descriptions, categories, four media images, public review state; versions: 1.0.0"
+}

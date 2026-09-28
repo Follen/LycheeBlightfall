@@ -1,0 +1,79 @@
+{
+  "mod_id": 27959,
+  "name": "荔枝邪DK吞病",
+  "review_status": 1,
+  "review_status_text": "审核通过",
+  "visibility": 1,
+  "visibility_text": "公开",
+  "is_paid": false,
+  "subscribe_plan_level": 0,
+  "subscribe_plan_text": "",
+  "source": "原创",
+  "download_count": 0,
+  "like_count": 0,
+  "rating": null,
+  "is_co_creation": false,
+  "co_authors": [],
+  "game_versions": [],
+  "update_time": 1790579502308,
+  "intro": "萨莱因邪 DK 吞病倒计时与语音提醒，随施法更新建议时间，自动区分单体和群怪。",
+  "description": "# 荔枝邪DK吞病\n\n专为正式服萨莱因邪 DK 准备的吞病提醒。接近建议时机时，屏幕显示「准备吞病 3.0s」，同时播放语音，让你少盯一个计时，多看一眼战场。\n\n## 跟着这一轮爆发走\n\n根据你的成功施法推算黑暗突变、灵魂收割等窗口，给出吞病倒计时。缠绕、传染续长突变后，建议时间也会更新；已经出现的文字会继续显示，语音每轮最多提醒一次。\n\n根据可见且已进战的敌方姓名板自动区分单体和群怪，不需要手动切换。请开启敌方姓名板，方便判断。\n\n## 提醒，按自己的习惯来\n\n- 默认提前 3 秒显示文字并播放「准备吞病」。文字与语音可以分别关闭、分别调整提前量。\n- 拖动调整位置，自由设置字号；提示背景透明。\n- 内置默认语音，支持 SharedMedia 音效选择和试听。\n- 设置直接放在「Esc → 选项 → 插件 → 荔枝邪DK吞病」。点击「解锁位置」会关闭设置，拖好后点「完成」。\n\n## 装好就能用\n\n适用于正式服 12.1、邪恶专精、萨莱因英雄天赋，并且已选择瘟疫降临。符合条件后自动启用；无需 WeakAuras 或荔枝启动器。\n\n使用平台客户端安装即可。手动安装时，把压缩包里的 LycheeBlightfall 和 LycheeBlightfall_Core 两个文件夹一起放进正式服 Interface/AddOns，两个都保持启用。首次安装后重启游戏。\n\n## 使用时记住这一点\n\n倒计时是按已发生的施法推算的建议，不会替你施法，也不保证每种装备和战斗场景都达到最高伤害。换目标、宠物状态变化、敌人超出姓名板范围等情况可能影响判断，请结合战况决定。战斗中重载界面后，需要下一次黑暗突变重新开始推算。\n\n## 鸣谢\n\n小当家 Chef。\n\n项目与反馈：https://github.com/Follen/LycheeBlightfall\n",
+  "content_format": 2,
+  "content_format_text": "Markdown",
+  "categories": [
+    {
+      "id": 1020,
+      "name": "职业"
+    },
+    {
+      "id": 1019,
+      "name": "战斗"
+    }
+  ],
+  "logo": "user_media/default/558213/f56248fb6e292dfe323001bd4667f028.png",
+  "logo_url": "https://cdn8.newbeebox.com/user_media/default/558213/f56248fb6e292dfe323001bd4667f028.png",
+  "screenshots": [
+    {
+      "title": "",
+      "description": "",
+      "url": "user_media/default/558213/6bf6dd2b1b47de3c055c215192f8e527.png",
+      "preview": "https://cdn8.newbeebox.com/user_media/default/558213/6bf6dd2b1b47de3c055c215192f8e527.png"
+    },
+    {
+      "title": "",
+      "description": "",
+      "url": "user_media/default/558213/457f2f6c5f78c30ca0551556d7ab4cbc.png",
+      "preview": "https://cdn8.newbeebox.com/user_media/default/558213/457f2f6c5f78c30ca0551556d7ab4cbc.png"
+    },
+    {
+      "title": "",
+      "description": "",
+      "url": "user_media/default/558213/844467f37d75d057a7576aa299e75c97.png",
+      "preview": "https://cdn8.newbeebox.com/user_media/default/558213/844467f37d75d057a7576aa299e75c97.png"
+    },
+    {
+      "title": "",
+      "description": "",
+      "url": "user_media/default/558213/6d7f267b2cafc941397e68d030ffa73e.png",
+      "preview": "https://cdn8.newbeebox.com/user_media/default/558213/6d7f267b2cafc941397e68d030ffa73e.png"
+    }
+  ],
+  "home_page": "GitHub",
+  "home_page_link": "https://github.com/Follen/LycheeBlightfall",
+  "link_to_channel": false,
+  "latest_versions": [
+    "12.1.0"
+  ],
+  "latest_file": {
+    "file_id": 617395,
+    "version_name": "1.0.0",
+    "release_type": 1,
+    "release_type_text": "正式版",
+    "file_size": 119020,
+    "upload_time": 1790579502147,
+    "game_versions": [
+      "12.1.0"
+    ],
+    "download_url": "https://cdn8.newbeebox.com/mod_file/27959/1.0.0"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "schema": "fupload.v1.dd.plugin.create",
+  "game_type": 10001,
+  "scope": "public",
+  "addon_type": 0,
+  "name": "荔枝邪DK吞病",
+  "description": "萨莱因邪 DK 吞病倒计时与语音提醒，随施法更新建议时间，自动区分单体和群怪。",
+  "logo_file": "D:\\Code\\wow\\addons\\Lychee Blightfall\\docs\\media\\logo.png",
+  "detail_img_files": [
+    "D:\\Code\\wow\\addons\\Lychee Blightfall\\docs\\media\\release-cover.png",
+    "D:\\Code\\wow\\addons\\Lychee Blightfall\\docs\\media\\combat.png",
+    "D:\\Code\\wow\\addons\\Lychee Blightfall\\docs\\media\\settings.png",
+    "D:\\Code\\wow\\addons\\Lychee Blightfall\\docs\\media\\positioning.png"
+  ],
+  "primary_category_id": 1020,
+  "second_category_ids": [
+    1036
+  ],
+  "html_desc": "<h1>荔枝邪DK吞病</h1>\r\n<p>专为正式服萨莱因邪 DK 准备的吞病提醒。接近建议时机时，屏幕显示「准备吞病 3.0s」，同时播放语音，让你少盯一个计时，多看一眼战场。</p>\r\n<h2>跟着这一轮爆发走</h2>\r\n<p>根据你的成功施法推算黑暗突变、灵魂收割等窗口，给出吞病倒计时。缠绕、传染续长突变后，建议时间也会更新；已经出现的文字会继续显示，语音每轮最多提醒一次。</p>\r\n<p>根据可见且已进战的敌方姓名板自动区分单体和群怪，不需要手动切换。请开启敌方姓名板，方便判断。</p>\r\n<h2>提醒，按自己的习惯来</h2>\r\n<ul>\r\n<li>默认提前 3 秒显示文字并播放「准备吞病」。文字与语音可以分别关闭、分别调整提前量。</li>\r\n<li>拖动调整位置，自由设置字号；提示背景透明。</li>\r\n<li>内置默认语音，支持 SharedMedia 音效选择和试听。</li>\r\n<li>设置直接放在「Esc → 选项 → 插件 → 荔枝邪DK吞病」。点击「解锁位置」会关闭设置，拖好后点「完成」。</li>\r\n</ul>\r\n<h2>装好就能用</h2>\r\n<p>适用于正式服 12.1、邪恶专精、萨莱因英雄天赋，并且已选择瘟疫降临。符合条件后自动启用；无需 WeakAuras 或荔枝启动器。</p>\r\n<p>使用平台客户端安装即可。手动安装时，把压缩包里的 LycheeBlightfall 和 LycheeBlightfall_Core 两个文件夹一起放进正式服 Interface/AddOns，两个都保持启用。首次安装后重启游戏。</p>\r\n<h2>使用时记住这一点</h2>\r\n<p>倒计时是按已发生的施法推算的建议，不会替你施法，也不保证每种装备和战斗场景都达到最高伤害。换目标、宠物状态变化、敌人超出姓名板范围等情况可能影响判断，请结合战况决定。战斗中重载界面后，需要下一次黑暗突变重新开始推算。</p>\r\n<h2>鸣谢</h2>\r\n<p>小当家 Chef。</p>\r\n<p>项目与反馈：https://github.com/Follen/LycheeBlightfall</p>\r\n",
+  "share_code_life_type": "forever",
+  "need_buy": false,
+  "price_fen": 0,
+  "jump_room": false,
+  "sync_room": false,
+  "creation_statement": "original",
+  "with_associate": false,
+  "need_anchor_vip": false,
+  "game_versions": [
+    "12.1.0"
+  ],
+  "file": "D:\\Code\\wow\\addons\\Lychee Blightfall\\dist\\LycheeBlightfall-1.0.0.zip",
+  "release_type": 1,
+  "version": "1.0.0",
+  "update_desc": "<p>1.0.0 首次正式发布。</p><p>萨莱因邪 DK 动态吞病倒计时与语音提醒，自动判断单体和群怪。</p><p>默认提前 3 秒，文字和语音可分别设置。支持透明提示、拖动定位、字号与 SharedMedia 音效选择。</p><p>设置整合进暴雪插件选项。</p>"
+}

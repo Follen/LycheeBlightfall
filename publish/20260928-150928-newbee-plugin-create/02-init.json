@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "wow",
+    "addons",
+    "init",
+    "addon",
+    "--id",
+    "27959",
+    "-o",
+    "json"
+  ],
+  "channel": "official-ncc",
+  "working_directory": "D:\\Code\\wow\\addons\\Lychee Blightfall",
+  "expected_readback": "addon/ncc.json id=27959"
+}

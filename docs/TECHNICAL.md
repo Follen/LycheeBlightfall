@@ -38,7 +38,7 @@
 
 这是按已发生事件推算的建议，不是完整 SimC DPS 求解器。2 GCD 是借鉴 APL 的出手余量，不是证明所有装备、操作下伤害最高。未来施法、疾病、实际收割命中、换目标、宠物死亡/增益被移除等不可完整推知；疾病由玩家确认。括号事件缺失、秘密值或无法注册时自动退回原吞病逻辑；HIDE 先于成功施法、未观察到的刷新/多层消耗会保守漏算，不把消失当作消耗。未使用技能替换状态。战斗中 `/reload` 会失去本轮施法历史，需下一次突变重新建立窗口。
 
-请开启敌方姓名板。这个计数只覆盖已显示且状态公开的敌人，超出显示范围、姓名板关闭会漏数；进战也不证明该怪正在和你的小队交战。秘密状态不会用于运算，也不会当作已知敌人。源码未标注相关计数接口的秘密返回，但仍未在 M+ / 团队副本战斗实测，详见 `Analyze/nameplate-aoe-audit.md`。
+请开启敌方姓名板。这个计数只覆盖已显示且状态公开的敌人，超出显示范围、姓名板关闭会漏数；进战也不证明该怪正在和你的小队交战。秘密状态不会用于运算，也不会当作已知敌人。源码未标注相关计数接口的秘密返回，但仍未在 M+ / 团队副本战斗实测，详见 `../Analyze/nameplate-aoe-audit.md`。
 
 ## 性能与秘密值
 
@@ -46,7 +46,7 @@
 
 ## 开发与验证
 
-目标正式服 12.1.0，Interface 120100，当前版本 0.4.1（透明拖动预览、imagegen 扁平荔枝图标、底部鸣谢与插件入口；默认语音保留已提高 60% 的音量）。数据依据及秘密值调查见 `Analyze/secret-value-audit-2026-09-28.md`；脏腑之力实现审计见 `Analyze/visceral-strength-audit.md`（其准备阶段文案已移除），早期实现见 `Analyze/implementation-audit.md`。
+目标正式服 12.1.0，Interface 120100，当前版本 1.0.0（透明拖动预览、imagegen 扁平荔枝图标、底部鸣谢与插件入口；默认语音保留已提高 60% 的音量）。数据依据及秘密值调查见 `../Analyze/secret-value-audit-2026-09-28.md`；脏腑之力实现审计见 `../Analyze/visceral-strength-audit.md`（其准备阶段文案已移除），早期实现见 `../Analyze/implementation-audit.md`。
 
 Lua 5.1：运行 `tests/engine_test.lua`、`tests/runtime_test.lua`、`tests/loader_test.lua`、`tests/enemies_test.lua`、`tests/settings_test.lua`。设置页测试模拟暴雪画布选择顺序，覆盖首次打开、已有插件页面切入及重复打开。离线测试不能代替游戏实测。静态验证使用已固定的 lycheedev UI 源码快照，未声称游戏内 UI、战斗限制或性能已经实测通过。
 

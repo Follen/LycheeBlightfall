@@ -1,0 +1,15 @@
+{
+  "error": {
+    "details": {
+      "path": "$.second_category_ids"
+    },
+    "kind": "validation_error",
+    "message": "array must contain integer IDs",
+    "stage": "dependency_get",
+    "verification_required": false
+  },
+  "operation": "plugin.create",
+  "platform": "dd",
+  "schema": "fupload.output.v1",
+  "success": false
+}

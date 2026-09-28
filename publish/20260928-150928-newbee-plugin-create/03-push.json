@@ -1,0 +1,22 @@
+{
+  "argv": [
+    "wow",
+    "addons",
+    "push",
+    "addon",
+    "--id",
+    "27959",
+    "--version",
+    "1.0.0",
+    "--game-versions",
+    "12.1.0",
+    "--changelog",
+    "@D:\\Code\\wow\\addons\\Lychee Blightfall\\docs\\publishing\\changelog.zh-CN.txt",
+    "-o",
+    "json"
+  ],
+  "channel": "official-ncc",
+  "working_directory": "D:\\Code\\wow\\addons\\Lychee Blightfall",
+  "expected_readback": "info and versions confirm 1.0.0, Retail 12.1.0, package two addon folders",
+  "preflight": "same argv plus --dry-run"
+}

@@ -1,0 +1,15 @@
+{
+  "game": "wow",
+  "type": "mod",
+  "id": 27959,
+  "name": "荔枝邪DK吞病",
+  "version": "1.0.0",
+  "game_versions": [
+    "12.1.0"
+  ],
+  "changelog_file": "../docs/publishing/changelog.zh-CN.txt",
+  "ignore": [
+    "*.psd",
+    "node_modules/**"
+  ]
+}

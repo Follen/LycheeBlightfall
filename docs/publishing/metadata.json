@@ -15,5 +15,19 @@
     "docs/media/combat.png",
     "docs/media/settings.png",
     "docs/media/positioning.png"
-  ]
+  ],
+  "platforms": {
+    "newbeebox": {
+      "file_id": 617395,
+      "version": "1.0.0",
+      "id": 27959,
+      "status": "approved-public"
+    },
+    "dd": {
+      "version": "1.0.0",
+      "share_code": "814384",
+      "sn": "9ae2960b9d2c49ed861856c39fb11e47",
+      "status": "submitted-public-approval-unconfirmed"
+    }
+  }
 }

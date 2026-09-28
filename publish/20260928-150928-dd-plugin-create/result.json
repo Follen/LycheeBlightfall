@@ -1,0 +1,99 @@
+{
+  "data": {
+    "readback": {
+      "addon_type": 0,
+      "assign_user_sn": null,
+      "associated_acts": [],
+      "author_icon": "http://ddavatar.fp.ps.netease.com/file/6a81c3db3bd4656eff49bdb3tVZyX53507",
+      "author_name": "荔枝Lychee",
+      "author_sn": "0d991caf110d4838a1b7891dbf528eee",
+      "buy_life_type": "seven_day",
+      "channel_id": "",
+      "channel_type": "",
+      "creation_statement": "original",
+      "description_summary": {
+        "bytes": 109,
+        "sha256": "6952a86530f0ee568f7b0109d0228368629e5afe152124003749e2530188c513"
+      },
+      "detail_imgs": [
+        "https://uires.w.163.com/img/img/wdrcKLkazNKiQAU5kNACdwSFAbAe3y5W",
+        "https://uires.w.163.com/img/img/zKULopY693sbnEsKZcAQqHxgt4cSWVPD",
+        "https://uires.w.163.com/img/img/XYPy8QAMEv7FiOcwU2MHugo88Zuk68E4",
+        "https://uires.w.163.com/img/img/kU2EMduwwkoTVwE8hjqrYBZNul4LZkGw"
+      ],
+      "display_game_version": "12.1.0",
+      "downloads": 0,
+      "expired": false,
+      "game_types": [
+        10001
+      ],
+      "game_versions": [
+        "12.1.0"
+      ],
+      "html_desc": "<h1>荔枝邪DK吞病</h1>\r\n<p>专为正式服萨莱因邪 DK 准备的吞病提醒。接近建议时机时，屏幕显示「准备吞病 3.0s」，同时播放语音，让你少盯一个计时，多看一眼战场。</p>\r\n<h2>跟着这一轮爆发走</h2>\r\n<p>根据你的成功施法推算黑暗突变、灵魂收割等窗口，给出吞病倒计时。缠绕、传染续长突变后，建议时间也会更新；已经出现的文字会继续显示，语音每轮最多提醒一次。</p>\r\n<p>根据可见且已进战的敌方姓名板自动区分单体和群怪，不需要手动切换。请开启敌方姓名板，方便判断。</p>\r\n<h2>提醒，按自己的习惯来</h2>\r\n<ul>\r\n<li>默认提前 3 秒显示文字并播放「准备吞病」。文字与语音可以分别关闭、分别调整提前量。</li>\r\n<li>拖动调整位置，自由设置字号；提示背景透明。</li>\r\n<li>内置默认语音，支持 SharedMedia 音效选择和试听。</li>\r\n<li>设置直接放在「Esc → 选项 → 插件 → 荔枝邪DK吞病」。点击「解锁位置」会关闭设置，拖好后点「完成」。</li>\r\n</ul>\r\n<h2>装好就能用</h2>\r\n<p>适用于正式服 12.1、邪恶专精、萨莱因英雄天赋，并且已选择瘟疫降临。符合条件后自动启用；无需 WeakAuras 或荔枝启动器。</p>\r\n<p>使用平台客户端安装即可。手动安装时，把压缩包里的 LycheeBlightfall 和 LycheeBlightfall_Core 两个文件夹一起放进正式服 Interface/AddOns，两个都保持启用。首次安装后重启游戏。</p>\r\n<h2>使用时记住这一点</h2>\r\n<p>倒计时是按已发生的施法推算的建议，不会替你施法，也不保证每种装备和战斗场景都达到最高伤害。换目标、宠物状态变化、敌人超出姓名板范围等情况可能影响判断，请结合战况决定。战斗中重载界面后，需要下一次黑暗突变重新开始推算。</p>\r\n<h2>鸣谢</h2>\r\n<p>小当家 Chef。</p>\r\n<p>项目与反馈：https://github.com/Follen/LycheeBlightfall</p>\r\n",
+      "is_owner": true,
+      "jump_room": false,
+      "latest_version": {
+        "file_path_summary": {
+          "host": "uires.w.163.com"
+        },
+        "folders": [],
+        "game_versions": [
+          "12.1.0"
+        ],
+        "release_type": 1,
+        "size": 117593,
+        "sn": "494761e0e2f04d088a8c240a44ffaef0",
+        "version": "1.0.0"
+      },
+      "logo": "https://uires.w.163.com/img/img/WiDuWWLVXeGiisNhaQ3EjSPESYbZCzOm",
+      "month_download": 0,
+      "mtime": 1790579430,
+      "name": "荔枝邪DK吞病",
+      "need_anchor_vip": false,
+      "need_buy": false,
+      "price_fen": 0,
+      "primary_category_id": 1020,
+      "room_id": "",
+      "scope": "public",
+      "second_category_ids": [
+        1036,
+        999
+      ],
+      "share_code": "814384",
+      "share_code_life_type": "forever",
+      "show_update": false,
+      "sn": "9ae2960b9d2c49ed861856c39fb11e47",
+      "source": "用户发布",
+      "source_link": "",
+      "status": 3,
+      "subscribed": false,
+      "sync_room": false,
+      "tags": [
+        {
+          "color": "#541D37",
+          "name": "死亡骑士"
+        },
+        {
+          "color": "#541D37",
+          "name": "用户发布"
+        }
+      ],
+      "total_download": 0,
+      "update_desc": "<p>1.0.0 首次正式发布。</p><p>萨莱因邪 DK 动态吞病倒计时与语音提醒，自动判断单体和群怪。</p><p>默认提前 3 秒，文字和语音可分别设置。支持透明提示、拖动定位、字号与 SharedMedia 音效选择。</p><p>设置整合进暴雪插件选项。</p>",
+      "user_uid": 282527135,
+      "week_download": 0,
+      "with_associate": false
+    },
+    "reference": "9ae2960b9d2c49ed861856c39fb11e47",
+    "result": {
+      "code": 0,
+      "msg": "ok"
+    }
+  },
+  "dry_run": false,
+  "operation": "plugin.create",
+  "platform": "dd",
+  "schema": "fupload.output.v1",
+  "success": true
+}
