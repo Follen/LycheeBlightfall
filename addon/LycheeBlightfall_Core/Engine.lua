@@ -20,6 +20,8 @@ end
 function Engine:ResetCycle()
     self.armed = false
     self.dtEnd, self.srEnd, self.heartEnd = nil, nil, nil
+    self.reaperAt = nil
+    self.reaperTextShown, self.reaperVoiced = false, false
     self.textShown, self.voiced = false, false
 end
 
@@ -72,6 +74,9 @@ function Engine:Cast(spellID, now, castGUID, useVisceral)
         self:ResetCycle()
         if heartEnd and heartEnd > now then self.heartEnd = heartEnd end
         self.armed, self.dtEnd = true, now + 15
+        -- SimC ST: DT active and its cooldown <38s. Retail base CD is 45s.
+        -- Pet-buff extensions do not move this cooldown-derived threshold.
+        self.reaperAt = now + 7.01
         return true
     end
     if spellID == self.HEART then
@@ -98,6 +103,25 @@ function Engine:Cast(spellID, now, castGUID, useVisceral)
         return true
     end
     return consumed or self.EXTENDERS[spellID] == true
+end
+
+function Engine:UpdateReaper(now, options, useReaper)
+    if not self.armed or not options.reaperEnabled or not useReaper
+        or self.srEnd or not self.reaperAt or now >= self.dtEnd then return nil end
+    if not options.textEnabled and not options.soundEnabled then return nil end
+    local state = { target = self.reaperAt, wake = self.dtEnd, action = "reaper" }
+    if options.textEnabled then
+        local at = self.reaperAt - options.textLead
+        if self.reaperTextShown or now >= at then
+            self.reaperTextShown, state.show = true, true
+        else state.wake = math.min(state.wake, at) end
+    end
+    if options.soundEnabled and not self.reaperVoiced then
+        local at = self.reaperAt - options.soundLead
+        if now >= at then self.reaperVoiced, state.voice = true, true
+        else state.wake = math.min(state.wake, at) end
+    end
+    return state
 end
 
 function Engine:Update(now, options, useReaper, aoe, useVisceral)

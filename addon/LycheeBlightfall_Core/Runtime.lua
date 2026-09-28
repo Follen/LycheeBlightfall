@@ -7,8 +7,11 @@ local timer, generation, active, ready, reaping = nil, 0, false, false, false
 local visceral = false
 local defaultSound = "荔枝：准备吞病（温暖少女）"
 local soundPath = "Interface\\AddOns\\LycheeBlightfall_Core\\Media\\prepare-blightfall.ogg"
+local reaperSoundPath = "Interface\\AddOns\\LycheeBlightfall_Core\\Media\\prepare-reaper.ogg"
+local defaultReaperSound = "荔枝：准备收割（温暖少女）"
 local defaults = { enabled = true, textEnabled = true, soundEnabled = true,
-    textLead = 3, soundLead = 3, fontSize = 32, x = 0, y = 160, sound = defaultSound }
+    textLead = 3, soundLead = 3, fontSize = 32, x = 0, y = 160, sound = defaultSound,
+    reaperEnabled = true, reaperSound = defaultReaperSound }
 
 local function public(value)
     return not issecretvalue(value)
@@ -23,10 +26,11 @@ local function clearCycle()
     frame:UnregisterEvent("SPELL_UPDATE_COOLDOWN")
     ns.Display:Hide()
 end
-function ns.PlayVoice(force)
+function ns.PlayVoice(force, action)
     if not force and not ns.db.soundEnabled then return end
-    local path = ns.media:Fetch("sound", ns.db.sound, true)
-    if path == nil then path = soundPath end
+    local isReaper = action == "reaper"
+    local path = ns.media:Fetch("sound", isReaper and ns.db.reaperSound or ns.db.sound, true)
+    if path == nil then path = isReaper and reaperSoundPath or soundPath end
     if path == "" then return end -- SharedMedia's explicit None entry.
     if type(path) == "number" then PlaySound(path, "Master")
     else PlaySoundFile(path, "Master") end
@@ -39,7 +43,17 @@ function ns.Refresh()
     local state = engine:Update(GetTime(), ns.db, reaping, aoe, visceral)
     if not engine.armed then frame:UnregisterEvent("SPELL_UPDATE_COOLDOWN") end
     if not state then ns.Display:Hide(); return end
-    if state.show then
+    -- One line / one voice at a time. Blightfall always wins when due.
+    local reaperState
+    if not state.show and not state.voice and not engine.textShown and not engine.voiced then
+        reaperState = engine:UpdateReaper(GetTime(), ns.db, reaping)
+    end
+    if reaperState then
+        state.wake = math.min(state.wake, reaperState.wake)
+        if reaperState.show then ns.Display:Show(reaperState.target, "reaper")
+        else ns.Display:Hide() end
+        if reaperState.voice then ns.PlayVoice(false, "reaper") end
+    elseif state.show then
         ns.Display:Show(state.target)
     else ns.Display:Hide() end
     if state.voice then ns.PlayVoice(false) end
@@ -129,6 +143,7 @@ local function initialize()
     LycheeBlightfallDB, ns.db = db, db
     ns.media = LibStub("LibSharedMedia-3.0")
     ns.media:Register("sound", defaultSound, soundPath)
+    ns.media:Register("sound", defaultReaperSound, reaperSoundPath)
     ns.SettingsUI:Register()
     ready = true
     activate()

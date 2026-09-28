@@ -8,12 +8,15 @@ The addon estimates timing from your successful casts, including Dark Transforma
 
 Single-target and AoE behavior switch automatically using visible enemy nameplates that are in combat. Keep enemy nameplates enabled for this feature.
 
+Since 1.0.1, an optional Soul Reaper reminder uses an approximately 7-second delay after Dark Transformation, with a default 3-second lead, in both single-target and AoE combat. It requires Soul Reaper and Reaping, cancels when Soul Reaper is cast, and does not move with pet-buff extensions. Blightfall has priority. The unified AoE cue is an addon preference, not SimC's AoE instruction to delay Soul Reaper.
+
 ## Make the reminder yours
 
 - Text and voice default to 3 seconds before the recommended timing, with separate toggles and lead-time settings.
 - Move the transparent reminder and adjust its font size.
 - Includes a default voice cue, SharedMedia sound selection, and sound preview.
-- Open Esc → Options → AddOns → 荔枝邪DK吞病. Unlocking closes the settings panel; drag the reminder and click the finish button to lock it.
+- Soul Reaper has its own reminder toggle and sound choice. Both reminders share position, text and voice lead settings.
+- Open Esc → Options → AddOns → [荔枝]智能吞病收割提醒. Unlocking closes the settings panel; drag the reminder and click the finish button to lock it.
 
 ## Getting started
 

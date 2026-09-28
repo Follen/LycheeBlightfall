@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.0.2 — 2026-09-28
+
+- Renamed the in-game addon to “[荔枝]智能吞病收割提醒” to match its platform listing.
+- Updated addon-list, settings, and documentation labels while preserving saved settings and reminder behavior.
+
+## 1.0.1 — 2026-09-28
+
+- Added a Soul Reaper countdown and voice cue, using the same approximately 7-second delay after Dark Transformation in both single-target and AoE combat; the default lead is 3 seconds.
+- Successful Soul Reaper casts cancel its reminder. Dark Transformation extensions do not delay it, and Blightfall retains priority.
+- Added a separate Soul Reaper toggle and independent SharedMedia sound selection and preview for both cues.
+- The new Chinese voice uses the same speaker, speed, and gain as the existing cue.
+
 ## 1.0.0 — 2026-09-28
 
 First public release.

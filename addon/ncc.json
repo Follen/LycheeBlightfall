@@ -2,8 +2,8 @@
   "game": "wow",
   "type": "mod",
   "id": 27959,
-  "name": "荔枝邪DK吞病",
-  "version": "1.0.0",
+  "name": "[荔枝]智能吞病收割提醒",
+  "version": "1.0.2",
   "game_versions": [
     "12.1.0"
   ],

@@ -1,14 +1,14 @@
 local _, ns = ...
 local Display = {}
 ns.Display = Display
-local frame, text, ticker, target, lastText, moveTitle, finish
+local frame, text, ticker, target, lastText, moveTitle, finish, action
 
 local function stopTicker()
     if ticker then ticker:Cancel(); ticker = nil end
 end
 local function render()
     local remaining = math.max(0, (target or GetTime()) - GetTime())
-    local label = "准备吞病"
+    local label = action == "reaper" and "准备收割" or "准备吞病"
     local value = remaining > 0 and string.format("%s |cffd53c49%.1fs|r", label, math.ceil(remaining * 10) / 10)
         or "|cffd53c49" .. label .. "|r"
     if value ~= lastText then text:SetText(value); lastText = value end
@@ -56,13 +56,14 @@ function Display:Apply()
 end
 function Display:Hide()
     stopTicker()
-    target, lastText = nil, nil
+    target, lastText, action = nil, nil, nil
     if frame and not self.unlocked then frame:Hide() end
 end
-function Display:Show(at)
+function Display:Show(at, nextAction)
     self:Create()
     if self.unlocked then return end
     target = at
+    action = nextAction
     render()
     frame:Show()
     if not ticker then ticker = C_Timer.NewTicker(0.1, render) end

@@ -1,0 +1,21 @@
+{
+  "version": "1.0.2",
+  "name": "[荔枝]智能吞病收割提醒",
+  "sha256": "8c3cd7ee160c95b734e58ae5791ba4de06ca33f9ce90fe4439a115c20f7a14b2",
+  "newbeebox": {
+    "status": "approved-public",
+    "description_verified": true,
+    "file_id": 617620,
+    "id": 27959
+  },
+  "dd": {
+    "approval": "not independently confirmed",
+    "update_cli_verified": true,
+    "version_sn": "f3d72477c20449d6b6427555f8cad00a",
+    "description_edit_cli_verified": true,
+    "cleanup_complete": true,
+    "version_history_verified": true,
+    "share_code": "814384",
+    "sn": "9ae2960b9d2c49ed861856c39fb11e47"
+  }
+}

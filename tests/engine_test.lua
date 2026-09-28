@@ -193,4 +193,30 @@ for _,gcd in ipairs({0.75,1,1.25,1.5}) do
         eq(e:Update(815,opts,true,aoe,true),nil,"unconsumed proc cannot prolong the cycle")
     end
 end
+local ro = {reaperEnabled=true,textEnabled=true,soundEnabled=true,textLead=3,soundLead=3}
+e:Reset()
+eq(e:UpdateReaper(0,ro,true),nil,"no reaper cue without a DT cycle")
+e:Cast(E.DT,900,"dt-reaper-test")
+local reaperAt=e.reaperAt
+s=e:UpdateReaper(900,ro,true)
+eq(s.wake,reaperAt-3,"reaper wakes at the configured lead")
+eq(s.show,nil,"no early text")
+s=e:UpdateReaper(reaperAt-3,ro,true)
+eq(s.show,true,"reaper text starts on time")
+eq(s.voice,true,"reaper voice starts on time")
+e:Cast(47541,905,"reaper-coil")
+s=e:UpdateReaper(906,ro,true)
+eq(s.target,reaperAt,"buff extension leaves reaper timing unchanged")
+eq(s.voice,nil,"reaper voice at most once")
+eq(e:UpdateReaper(906,ro,false),nil,"requires Reaping and Soul Reaper")
+ro.reaperEnabled=false
+eq(e:UpdateReaper(906,ro,true),nil,"independent reminder toggle")
+ro.reaperEnabled=true
+e:Cast(E.REAPER,907.1,"reaper-test-cast")
+eq(e:UpdateReaper(907.1,ro,true),nil,"successful Soul Reaper cancels cue")
+e:Cast(E.DT,930,"dt-reaper-next")
+eq(e:UpdateReaper(935,ro,true).voice,true,"a new DT resets reaper voice")
+eq(e:UpdateReaper(945,ro,true),nil,"no reaper cue after DT expiration")
+e:Cast(E.BLIGHTFALL,935.5,"early-swallow")
+eq(e:UpdateReaper(936,ro,true),nil,"swallow clears both cues")
 print("Engine assertions passed: " .. count)

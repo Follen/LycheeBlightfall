@@ -111,7 +111,7 @@ local function scenario(canvasVisible, viewport)
     function HideUIPanel(panel) panel:Hide() end
     LycheeBlightfall={title="Test",eligible=true}
     local ns={db={enabled=true,textEnabled=true,soundEnabled=true,textLead=3,soundLead=3,
-        fontSize=32,x=0,y=160,sound="default"},media={List=function() return {"default","another"} end},
+        fontSize=32,x=0,y=160,sound="default",reaperEnabled=true,reaperSound="reaper"},media={List=function() return {"default","another"} end},
         Display={Apply=function() end,SetUnlocked=function(self,value) self.unlocked=value end},
         PlayVoice=function() end,ResetSettings=function() end,
         ApplySettings=function() changes=changes+1 end}
@@ -146,7 +146,7 @@ local function scenario(canvasVisible, viewport)
         if frame.kind=="Slider" then sliders=sliders+1 end
         if frame.kind=="DropdownButton" then dropdowns=dropdowns+1 end
     end
-    eq(checks,3,"enable/text/voice toggles built")
+    eq(checks,4,"enable/reaper/text/voice toggles built")
     eq(sliders,3,"lead/font sliders built")
     eq(dropdowns,0,"sound selection uses a native context menu")
     if arg[1]=="--snapshot" and canvasVisible then
@@ -157,7 +157,7 @@ local function scenario(canvasVisible, viewport)
     for _,frame in ipairs(frames) do
         if frame.aboutName then icons[frame.aboutName]=frame end
         if frame.label and frame.label.text=="解锁位置" then unlock=frame end
-        if frame.label and frame.label.text=="更换" then choose=frame end
+        if frame.label and frame.label.text=="更换" and not choose then choose=frame end
     end
     eq(icons["鸣谢"]~=nil and icons["荔枝启动器"]~=nil and icons["荔枝天赋"]~=nil,true,"three footer entrances")
     icons["鸣谢"].scripts.OnClick()
@@ -235,6 +235,15 @@ local function scenario(canvasVisible, viewport)
     done.scripts.OnClick(done)
     eq(ns.Display.unlocked,false,"Done locks the mover without reopening settings")
     eq(mover:IsShown(),false,"Done removes the positioning overlay")
+    ns.Display:Show(3,"reaper")
+    local prompt
+    for _,object in ipairs(frames) do
+        if object.parent==mover and object.kind=="FontString" and object.text:find("准备收割",1,true) then prompt=object end
+    end
+    eq(not not prompt,true,"actual display renders the reaper cue")
+    ns.Display:Show(2)
+    eq(prompt.text:find("准备吞病",1,true)==1,true,"same line returns to swallow without stale label")
+    ns.Display:Hide()
 end
 scenario(true)
 scenario(false)

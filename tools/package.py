@@ -5,7 +5,7 @@ import zipfile
 
 root = Path(__file__).resolve().parents[1]
 source = root / "addon"
-target = root / "dist/LycheeBlightfall-1.0.0.zip"
+target = root / "dist/LycheeBlightfall-1.0.2.zip"
 target.parent.mkdir(exist_ok=True)
 files = sorted(p for p in source.rglob("*") if p.is_file() and p.name != "ncc.json" and not any(part.startswith(".") for part in p.relative_to(source).parts))
 assert {p.relative_to(source).parts[0] for p in files} == {"LycheeBlightfall", "LycheeBlightfall_Core"}
@@ -19,6 +19,7 @@ for folder in ("LycheeBlightfall", "LycheeBlightfall_Core"):
         if entry and not entry.startswith("#"):
             assert (toc.parent / entry.replace("\\", "/")).is_file(), "Missing TOC file: " + entry
 assert (source / "LycheeBlightfall_Core/Media/prepare-blightfall.ogg").read_bytes().startswith(b"OggS")
+assert (source / "LycheeBlightfall_Core/Media/prepare-reaper.ogg").read_bytes().startswith(b"OggS")
 with zipfile.ZipFile(target, "w", zipfile.ZIP_DEFLATED) as archive:
     for file in files:
         archive.write(file, file.relative_to(source).as_posix())

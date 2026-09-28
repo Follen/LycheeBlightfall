@@ -1,7 +1,7 @@
 local _, class = UnitClass("player")
 if class ~= "DEATHKNIGHT" then return end
 
-local app = { title = "|cffd53c49荔枝|r邪DK吞病" }
+local app = { title = "|cffd53c49[荔枝]|r智能吞病收割提醒" }
 _G.LycheeBlightfall = app
 local frame = CreateFrame("Frame")
 local pending = false

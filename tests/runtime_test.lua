@@ -4,7 +4,8 @@ local secret = {}
 local cooldown = {duration=1.5, modRate=1}
 local ns = {}
 local units, plates = {}, {}
-local knowsVisceral, rejectOverlay = true, false
+local knowsVisceral, rejectOverlay, knowsReaping = true, false, true
+local soundFiles = {}
 function UnitIsPlayer(unit) return units[unit].player or false end
 function UnitCanAttack(_,unit) return units[unit].attackable ~= false end
 function UnitIsDeadOrGhost(unit) return units[unit].dead or false end
@@ -54,14 +55,18 @@ local function pending()
     return n
 end
 C_Spell = {GetSpellCooldown=function(id) eq(id,61304,"only inspect public GCD"); return cooldown end}
-C_SpellBook = {IsSpellKnown=function(id) return id ~= 434157 or knowsVisceral end}
+C_SpellBook = {IsSpellKnown=function(id)
+    if id == 434157 then return knowsVisceral end
+    if id == 377514 or id == 343294 then return knowsReaping end
+    return true
+end}
 LycheeBlightfall = {eligible=true}
-LycheeBlightfallDB = {textLead=0/0, soundLead=99, x=math.huge}
+LycheeBlightfallDB = {textLead=0/0, soundLead=99, x=math.huge,reaperEnabled=false}
 local media = {sounds={}}
 function media:Register(_, name, path) self.sounds[name]=path end
 function media:Fetch(_, name) return self.sounds[name] end
 function LibStub() return media end
-function PlaySoundFile() sounds = sounds+1 end
+function PlaySoundFile(path) sounds = sounds+1; soundFiles[#soundFiles+1]=path end
 PlaySound = PlaySoundFile
 ns.Display = {Hide=function(self) self.target=nil; self.action=nil end,
     Show=function(self, at, action) self.target=at; self.action=action end, Apply=function() end,
@@ -126,6 +131,8 @@ ns.db.textEnabled,ns.db.soundEnabled=false,false
 ns.ApplySettings()
 eq(next(f.events),nil,"both outputs off stops runtime")
 ns.ResetSettings()
+eq(ns.db.reaperEnabled,true,"reset enables the new reminder")
+ns.db.reaperEnabled=false -- Continue the existing Blightfall-only regression cases.
 eq(f.events.UNIT_SPELLCAST_SUCCEEDED,"player","defaults re-enable")
 cooldown={duration=0,modRate=1}
 advance(50)
@@ -202,4 +209,67 @@ advance(240)
 cast(1233448,"dt-unavailable")
 advance(249)
 eq(ns.Display.target,252,"unavailable proc events retain baseline reminder")
+
+-- New dual-reminder behavior, using the real engine and scheduled wakes.
+event("PLAYER_REGEN_ENABLED")
+ns.db.reaperEnabled=true
+local initialSounds=sounds
+advance(300)
+cast(1233448,"dt-reaper-aoe") -- Three engaged plates remain: AOE uses the same delay.
+advance(303.9)
+eq(ns.Display.target,nil,"reaper waits for its lead threshold")
+advance(304.02)
+eq(ns.Display.action,"reaper","AOE gets the same reaper prompt")
+eq(ns.Display.target,307.01,"reaper uses the DT cooldown-derived threshold")
+eq(sounds,initialSounds+1,"reaper voice once")
+eq(soundFiles[#soundFiles],"Interface\\AddOns\\LycheeBlightfall_Core\\Media\\prepare-reaper.ogg","correct reaper audio file")
+advance(305)
+cast(207317,"reaper-extension")
+eq(ns.Display.target,307.01,"DT duration extension does not delay Soul Reaper")
+eq(sounds,initialSounds+1,"extension does not repeat reaper voice")
+advance(307.1)
+cast(343294,"reaper-used")
+eq(ns.Display.target,nil,"casting reaper immediately removes its prompt")
+advance(310)
+eq(ns.Display.action,nil,"AOE still gives the normal swallow prompt")
+eq(ns.Display.target,313,"AOE swallow ignores Soul Reaper deadline")
+eq(soundFiles[#soundFiles],"Interface\\AddOns\\LycheeBlightfall_Core\\Media\\prepare-blightfall.ogg","swallow has its own audio")
+eq(sounds,initialSounds+2,"each cue played once")
+event("PLAYER_REGEN_ENABLED")
+event("NAME_PLATE_UNIT_REMOVED","nameplate2")
+event("NAME_PLATE_UNIT_REMOVED","nameplate3")
+advance(330)
+cast(1233448,"dt-reaper-st")
+advance(334.02)
+eq(ns.Display.action,"reaper","single target gets the same reminder")
+cast(343294,"reaper-st-used")
+eq(ns.Display.target,nil,"single reaper cast removes preparation")
+advance(336.1)
+eq(ns.Display.target,339.02,"ST swallow follows the actual reaper cast")
+event("PLAYER_REGEN_ENABLED")
+advance(360)
+cast(1233448,"dt-early-reaper")
+advance(361)
+cast(343294,"already-reaped")
+initialSounds=sounds
+advance(364.02)
+eq(ns.Display.action,nil,"already used Soul Reaper never prompts reaper")
+eq(sounds,initialSounds+1,"only swallow sounds after early Soul Reaper")
+event("PLAYER_REGEN_ENABLED")
+advance(390)
+cast(1233448,"dt-no-reaper-cast")
+advance(394.02)
+eq(ns.Display.action,"reaper","reaper appears before swallow")
+advance(399)
+eq(ns.Display.action,nil,"due swallow takes priority over uncast reaper")
+eq(ns.Display.target,402,"swallow schedule is unchanged")
+event("PLAYER_REGEN_ENABLED")
+knowsReaping=false
+LycheeBlightfall.SetEligible(true)
+advance(420)
+cast(1233448,"dt-no-reaping-talent")
+advance(424.02)
+eq(ns.Display.target,nil,"missing Reaping talent suppresses delayed reaper cue")
+event("PLAYER_REGEN_ENABLED")
+eq(pending(),0,"both reminders stop on reset")
 print("Runtime assertions passed: " .. count)

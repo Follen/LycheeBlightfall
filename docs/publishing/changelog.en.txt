@@ -1,0 +1,2 @@
+• Renamed the in-game addon to “[荔枝]智能吞病收割提醒” to match its platform listing.
+• Updated addon-list, settings, and documentation labels while preserving saved settings and reminder behavior.

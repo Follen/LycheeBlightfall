@@ -1,14 +1,14 @@
 {
-  "name": "荔枝邪DK吞病",
+  "name": "[荔枝]智能吞病收割提醒",
   "name_en": "Lychee Blightfall",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "summary_zh": "萨莱因邪 DK 吞病倒计时与语音提醒，随施法更新建议时间，自动区分单体和群怪。",
   "summary_en": "A dynamic Blightfall countdown and voice reminder for San'layn Unholy Death Knights, with automatic single-target and AoE branches.",
   "branch": "retail",
   "interface": 120100,
   "game_version": "12.1.0",
   "repository": "https://github.com/Follen/LycheeBlightfall",
-  "package": "dist/LycheeBlightfall-1.0.0.zip",
+  "package": "dist/LycheeBlightfall-1.0.2.zip",
   "cover": "docs/media/release-cover.png",
   "logo": "docs/media/logo.png",
   "screenshots": [
@@ -18,16 +18,17 @@
   ],
   "platforms": {
     "newbeebox": {
-      "file_id": 617395,
-      "version": "1.0.0",
+      "file_id": 617620,
+      "version": "1.0.2",
       "id": 27959,
       "status": "approved-public"
     },
     "dd": {
-      "version": "1.0.0",
+      "version": "1.0.2",
       "share_code": "814384",
       "sn": "9ae2960b9d2c49ed861856c39fb11e47",
-      "status": "submitted-public-approval-unconfirmed"
+      "status": "version-history-confirmed-public-detail-stale",
+      "version_sn": "f3d72477c20449d6b6427555f8cad00a"
     }
   }
 }
