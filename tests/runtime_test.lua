@@ -67,7 +67,7 @@ local media = {sounds={}}
 function media:Register(_, name, path) self.sounds[name]=path end
 function media:Fetch(_, name) return self.sounds[name] end
 function LibStub() return media end
-function PlaySoundFile(path) sounds = sounds+1; soundFiles[#soundFiles+1]=path end
+function PlaySoundFile(path, channel) assert(channel == "Dialog", "voice must follow the Dialog volume slider"); sounds = sounds+1; soundFiles[#soundFiles+1]=path end
 PlaySound = PlaySoundFile
 ns.Display = {Hide=function(self) self.target=nil; self.action=nil end,
     Show=function(self, at, action) self.target=at; self.action=action end, Apply=function() end,

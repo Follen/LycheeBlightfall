@@ -30,7 +30,7 @@ if status.get("status_code") != 0:
 audio = bytes.fromhex(result["data"]["audio"])
 out = root / ("addon/LycheeBlightfall_Core/Media/prepare-" + args.cue + ".ogg")
 subprocess.run(["ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-i", "pipe:0",
-    "-af", "volume=1.6", "-c:a", "libvorbis", "-q:a", "5", "-map_metadata", "-1", str(out)], input=audio, check=True)
+    "-af", "volume=2.4", "-c:a", "libvorbis", "-q:a", "5", "-map_metadata", "-1", str(out)], input=audio, check=True)
 if args.cue == "reaper":
     subprocess.run([sys.executable, str(root / "tools/match_voice_level.py"), str(out),
         str(root / "addon/LycheeBlightfall_Core/Media/prepare-blightfall.ogg")], check=True)

@@ -2,9 +2,9 @@
 
 Soul Reaper and Blightfall countdowns and voice cues for Retail San'layn Unholy Death Knights. The in-game UI and bundled voices are Chinese.
 
-## Version 1.0.4
+## Version 1.1.0
 
-Changing font size, sounds, or lead times now preserves the current timeline. Redundant nameplate scans are reduced, display updates stop at zero, and fresh GCD observations refresh the countdown correctly. Existing Reaper and Blightfall timing rules are unchanged.
+Both bundled voice cues are amplified by another 50% relative to 1.0.4. All reminders, custom SharedMedia sounds, and previews now use the Dialog channel and follow WoW's Dialogue volume setting under Options → Audio. Custom audio files are unchanged, as are Reaper and Blightfall timings.
 
 ## Soul Reaper
 

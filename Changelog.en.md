@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.1.0 — 2026-09-29
+
+- Increase both bundled Blightfall and Soul Reaper voice cues by another 50% relative to 1.0.4.
+- Route all reminders and previews through the Dialog audio channel, controlled by WoW's Dialogue volume setting.
+- Custom SharedMedia sounds also follow Dialogue volume; their audio files are not amplified.
+- Preserve existing Soul Reaper and Blightfall timing rules and saved settings.
+
 ## 1.0.4 — 2026-09-29
 
 - Keep the current burst timeline when changing font size, sounds, or lead times, without replaying announced cues.

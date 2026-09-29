@@ -1,14 +1,14 @@
 {
   "name": "[荔枝]智能吞病收割提醒",
   "name_en": "Lychee Blightfall",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "summary_zh": "萨莱因邪 DK 收割与吞病语音倒计时，乌心分支与单体时机经 27.9 万次模拟筛选、复测。",
   "summary_en": "Soul Reaper and Blightfall cues for San'layn Unholy DKs, with single-target timings evaluated across 279,000 simulations.",
   "branch": "retail",
   "interface": 120100,
   "game_version": "12.1.0",
   "repository": "https://github.com/Follen/LycheeBlightfall",
-  "package": "dist/LycheeBlightfall-1.0.4.zip",
+  "package": "dist/LycheeBlightfall-1.1.0.zip",
   "cover": "docs/media/release-cover.png",
   "logo": "docs/media/logo.png",
   "screenshots": [
@@ -18,17 +18,17 @@
   ],
   "platforms": {
     "newbeebox": {
-      "file_id": 619133,
-      "version": "1.0.4",
+      "file_id": 619332,
+      "version": "1.1.0",
       "id": 27959,
       "status": "approved-public"
     },
     "dd": {
-      "version": "1.0.4",
+      "version": "1.1.0",
       "share_code": "814384",
       "sn": "9ae2960b9d2c49ed861856c39fb11e47",
-      "status": "current-version-confirmed-detail-and-author-list",
-      "version_sn": "1d7b6fbf240d41798f4e8c81db96d43c"
+      "status": "current-version-and-description-confirmed",
+      "version_sn": "dd9a9d0d49cd4682a8d838f128c5692c"
     }
   }
 }

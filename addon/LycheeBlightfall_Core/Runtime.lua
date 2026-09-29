@@ -32,8 +32,8 @@ function ns.PlayVoice(force, action)
     local path = ns.media:Fetch("sound", isReaper and ns.db.reaperSound or ns.db.sound, true)
     if path == nil then path = isReaper and reaperSoundPath or soundPath end
     if path == "" then return end -- SharedMedia's explicit None entry.
-    if type(path) == "number" then PlaySound(path, "Master")
-    else PlaySoundFile(path, "Master") end
+    if type(path) == "number" then PlaySound(path, "Dialog")
+    else PlaySoundFile(path, "Dialog") end
 end
 function ns.Refresh(refreshEnemies)
     cancelTimer()
