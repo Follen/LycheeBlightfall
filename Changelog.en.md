@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.1.1 — 2026-09-29
+
+- Add a lychee-red Audio Volume slider to voice settings, adjustable from 0 to 100%.
+- Explain that the slider changes system Dialogue volume and synchronize it with WoW audio settings.
+- Volume changes preserve active reminders; resetting addon settings leaves system volume unchanged.
+- Listen for volume changes only while the settings page is open, without polling. Reaper and Blightfall timing rules are unchanged.
+
 ## 1.1.0 — 2026-09-29
 
 - Increase both bundled Blightfall and Soul Reaper voice cues by another 50% relative to 1.0.4.

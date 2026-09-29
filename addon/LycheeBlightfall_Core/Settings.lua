@@ -3,6 +3,7 @@ local UI, T = {}, ns.Theme
 ns.SettingsUI = UI
 local C = T.colors
 local panel, content, refreshers = nil, nil, {}
+local refreshAudioVolume
 
 local function changed()
     ns.ApplySettings()
@@ -34,13 +35,27 @@ local function toggle(y, title, key)
     control:SetScript("OnClick", function(self) ns.db[key]=self:GetChecked()==true; changed() end)
     refreshers[#refreshers+1] = function() control:SetChecked(ns.db[key]); control:Paint() end
 end
-local function slider(y, title, key, low, high, step, suffix)
-    local host = row(y, 56)
-    local label = T.Text(host, 16, C.text, title); label:SetPoint("LEFT",14,0)
+local function slider(y, title, key, low, high, step, suffix, binding)
+    local read = binding and binding.read or function() return ns.db[key] end
+    local write = binding and binding.write or function(value) ns.db[key]=value; changed() end
+    local subtitle = binding and binding.subtitle
+    local thumbColor = binding and C.red or C.text
+    local host = row(y, subtitle and 96 or 56)
+    local label = T.Text(host, 16, C.text, title)
+    if subtitle then
+        label:SetPoint("TOPLEFT",14,-12)
+        local hint = T.Text(host,13,C.muted,subtitle)
+        hint:SetPoint("TOPLEFT",14,-36); hint:SetPoint("TOPRIGHT",-14,-36)
+    else label:SetPoint("LEFT",14,0) end
     local valueText = T.Text(host, 16, C.text, "")
-    valueText:SetPoint("RIGHT",-14,0); valueText:SetJustifyH("RIGHT"); valueText:SetWidth(70)
+    if subtitle then valueText:SetPoint("TOPRIGHT",-14,-12)
+    else valueText:SetPoint("RIGHT",-14,0) end
+    valueText:SetJustifyH("RIGHT"); valueText:SetWidth(70)
     local control = CreateFrame("Slider", "LycheeBlightfallSlider_"..key, host)
-    control:SetPoint("LEFT",142,0); control:SetPoint("RIGHT",-98,0); control:SetHeight(24)
+    if subtitle then
+        control:SetPoint("BOTTOMLEFT",20,10); control:SetPoint("BOTTOMRIGHT",-20,10)
+    else control:SetPoint("LEFT",142,0); control:SetPoint("RIGHT",-98,0) end
+    control:SetHeight(24)
     control:SetOrientation("HORIZONTAL"); control:SetMinMaxValues(low,high)
     control:SetValueStep(step); control:SetObeyStepOnDrag(true)
     local track = control:CreateTexture(nil,"BACKGROUND")
@@ -48,7 +63,7 @@ local function slider(y, title, key, low, high, step, suffix)
     local progress = control:CreateTexture(nil,"ARTWORK")
     progress:SetPoint("LEFT"); progress:SetHeight(3); progress:SetColorTexture(unpack(C.red))
     local thumb = control:CreateTexture(nil,"OVERLAY")
-    thumb:SetSize(12,20); thumb:SetColorTexture(unpack(C.text)); control:SetThumbTexture(thumb)
+    thumb:SetSize(12,20); thumb:SetColorTexture(unpack(thumbColor)); control:SetThumbTexture(thumb)
     local refreshing=false
     local function paint(value)
         valueText:SetText(string.format(step<1 and "%.1f" or "%.0f",value)..suffix)
@@ -57,14 +72,16 @@ local function slider(y, title, key, low, high, step, suffix)
     control:SetScript("OnValueChanged",function(_,value)
         value=math.floor(value/step+.5)*step
         paint(value)
-        if not refreshing and ns.db[key]~=value then ns.db[key]=value; changed() end
+        if not refreshing and math.floor(read()/step+.5)*step~=value then write(value) end
     end)
-    control:SetScript("OnSizeChanged",function() paint(ns.db[key]) end)
+    control:SetScript("OnSizeChanged",function() paint(read()) end)
     control:SetScript("OnEnter",function() thumb:SetColorTexture(unpack(C.hot)) end)
-    control:SetScript("OnLeave",function() thumb:SetColorTexture(unpack(C.text)) end)
-    refreshers[#refreshers+1]=function()
-        refreshing=true; control:SetValue(ns.db[key]); paint(ns.db[key]); refreshing=false
+    control:SetScript("OnLeave",function() thumb:SetColorTexture(unpack(thumbColor)) end)
+    local function refresh()
+        refreshing=true; control:SetValue(read()); paint(read()); refreshing=false
     end
+    refreshers[#refreshers+1]=refresh
+    return refresh
 end
 
 function UI:TogglePosition()
@@ -86,7 +103,7 @@ local function build()
     local scroll = CreateFrame("ScrollFrame",nil,panel,"UIPanelScrollFrameTemplate")
     scroll:SetPoint("TOPLEFT",0,-4); scroll:SetPoint("BOTTOMRIGHT",-26,68)
     content=CreateFrame("Frame",nil,scroll)
-    content:SetSize(640,800); scroll:SetScrollChild(content)
+    content:SetSize(640,904); scroll:SetScrollChild(content)
     local function resize()
         local width=scroll:GetWidth()
         if width and width>0 then content:SetWidth(width) end
@@ -120,7 +137,15 @@ local function build()
     slider(378,"提前显示","textLead",0,10,.5," 秒")
     slider(442,"文字大小","fontSize",18,60,1,"")
     toggle(522,"语音提醒","soundEnabled")
-    slider(578,"提前播报","soundLead",0,10,.5," 秒")
+    refreshAudioVolume=slider(578,"音频音量","dialogVolume",0,100,1,"%",{
+        subtitle="这将改变系统对话音量",
+        read=function()
+            local value=tonumber(C_CVar.GetCVar("Sound_DialogVolume")) or 0
+            return math.max(0,math.min(1,value))*100
+        end,
+        write=function(value) C_CVar.SetCVar("Sound_DialogVolume",value/100) end,
+    })
+    slider(682,"提前播报","soundLead",0,10,.5," 秒")
     local function soundRow(y, title, key, action)
         local sound=row(y,64)
         local soundTitle=T.Text(sound,16,C.text,title); soundTitle:SetPoint("TOPLEFT",14,-10)
@@ -148,8 +173,8 @@ local function build()
         sound:SetScript("OnLeave",function() GameTooltip:Hide() end)
         sound:SetScript("OnHide",function() if GameTooltip:IsOwned(sound) then GameTooltip:Hide() end end)
     end
-    soundRow(642,"吞病提示音","sound")
-    soundRow(714,"收割提示音","reaperSound","reaper")
+    soundRow(746,"吞病提示音","sound")
+    soundRow(818,"收割提示音","reaperSound","reaper")
 
     ns.About:CreateFooter(panel)
     panel.built=true
@@ -163,8 +188,11 @@ end
 function UI:Register()
     panel=CreateFrame("Frame","LycheeBlightfallOptionsPanel",UIParent)
     panel:Hide(); panel.name=LycheeBlightfall.title
-    panel:SetScript("OnShow",function() self:Refresh(true) end)
-    panel:SetScript("OnHide",function() ns.About:Close() end)
+    panel:SetScript("OnShow",function() panel:RegisterEvent("CVAR_UPDATE"); self:Refresh(true) end)
+    panel:SetScript("OnHide",function() panel:UnregisterEvent("CVAR_UPDATE"); ns.About:Close() end)
+    -- Read the CVar again instead of relying on event payload names or values.
+    -- Listen only while this settings page is open; no polling or combat reset.
+    panel:SetScript("OnEvent",function() if refreshAudioVolume then refreshAudioVolume() end end)
     panel.OnDefault=function() ns.ResetSettings(); self:Refresh() end
     panel.OnRefresh=function() self:Refresh(true) end
     local category=Settings.RegisterCanvasLayoutCategory(panel,panel.name)

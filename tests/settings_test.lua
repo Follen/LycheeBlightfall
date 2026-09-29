@@ -12,6 +12,8 @@ local function scenario(canvasVisible, viewport)
     local methods = {}
     function methods:IsVisible() return self.shown and (not self.parent or self.parent:IsVisible()) end
     function methods:SetScript(name,fn) self.scripts[name]=fn end
+    function methods:RegisterEvent(name) self.events=self.events or {}; self.events[name]=true end
+    function methods:UnregisterEvent(name) if self.events then self.events[name]=nil end end
     function methods:Show()
         local was=self:IsVisible(); self.shown=true
         if not was and self:IsVisible() and self.scripts.OnShow then self.scripts.OnShow(self) end
@@ -37,7 +39,10 @@ local function scenario(canvasVisible, viewport)
     function methods:SetSize(w,h) self.width,self.height=w,h end
     function methods:SetWidth(w) self.width=w end
     function methods:SetHeight(h) self.height=h end
-    function methods:GetWidth() return self.width or (self.kind=="Slider" and viewport-288 or viewport) end
+    function methods:GetWidth()
+        if self.name=="LycheeBlightfallSlider_dialogVolume" then return viewport-88 end
+        return self.width or (self.kind=="Slider" and viewport-288 or viewport)
+    end
     function methods:GetHeight() return self.height or 720 end
     function methods:IsEnabled() return self.enabled~=false end
     function methods:IsShown() return self.shown end
@@ -94,6 +99,17 @@ local function scenario(canvasVisible, viewport)
     STANDARD_TEXT_FONT="test-font"
     UISpecialFrames={}; tinsert=table.insert
     GameTooltip={Hide=function() end,IsOwned=function() return false end}
+    local systemVolume,cvarWrites=.45,0
+    C_CVar={GetCVar=function(name)
+        eq(name,"Sound_DialogVolume","read only system dialogue volume")
+        return tostring(systemVolume)
+    end,SetCVar=function(name,value)
+        eq(name,"Sound_DialogVolume","write only system dialogue volume")
+        systemVolume=value; cvarWrites=cvarWrites+1
+        if selected and selected.layout.frame.events.CVAR_UPDATE then
+            selected.layout.frame.scripts.OnEvent(selected.layout.frame,"CVAR_UPDATE",name,tostring(value))
+        end
+    end}
     local choices={}
     MenuUtil={CreateContextMenu=function(owner,generator)
         generator(owner,{SetScrollMode=function()end,CreateRadio=function(_,name,selected,callback)
@@ -147,7 +163,28 @@ local function scenario(canvasVisible, viewport)
         if frame.kind=="DropdownButton" then dropdowns=dropdowns+1 end
     end
     eq(checks,4,"enable/reaper/text/voice toggles built")
-    eq(sliders,3,"lead/font sliders built")
+    eq(sliders,4,"lead/font/system volume sliders built")
+    local volume=LycheeBlightfallSlider_dialogVolume
+    eq(volume.value,45,"volume starts from current system value")
+    eq(cvarWrites,0,"opening settings does not change system volume")
+    eq(volume.thumb.color[1],ns.Theme.colors.red[1],"volume thumb uses lychee red")
+    volume:SetValue(0)
+    eq(systemVolume,0,"zero can mute dialogue")
+    volume:SetValue(100)
+    eq(systemVolume,1,"maximum maps to full system volume")
+    eq(changes,0,"volume changes do not reset or refresh combat tracking")
+    eq(ns.db.dialogVolume,nil,"system volume is never duplicated in addon saved settings")
+    systemVolume=.37
+    panel.scripts.OnEvent(panel,"CVAR_UPDATE","Sound_DialogVolume","0.37")
+    eq(volume.value,37,"external CVar update refreshes volume slider")
+    eq(cvarWrites,2,"synchronization does not write the CVar back")
+    panel:Hide()
+    eq(panel.events.CVAR_UPDATE,nil,"hidden panel stops listening for CVars")
+    systemVolume=.62
+    panel:Show()
+    eq(volume.value,62,"reopening rereads changes made while hidden")
+    panel.OnDefault()
+    eq(systemVolume,.62,"addon defaults leave global audio volume unchanged")
     eq(dropdowns,0,"sound selection uses a native context menu")
     if arg[1]=="--snapshot" and canvasVisible then
         assert(loadfile("tools/ui_snapshot.lua"))()(frames,"Analyze/ui-settings-"..viewport..".json")

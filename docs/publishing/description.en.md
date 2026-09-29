@@ -2,9 +2,9 @@
 
 Soul Reaper and Blightfall countdowns and voice cues for Retail San'layn Unholy Death Knights. The in-game UI and bundled voices are Chinese.
 
-## Version 1.1.0
+## Version 1.1.1
 
-Both bundled voice cues are amplified by another 50% relative to 1.0.4. All reminders, custom SharedMedia sounds, and previews now use the Dialog channel and follow WoW's Dialogue volume setting under Options → Audio. Custom audio files are unchanged, as are Reaper and Blightfall timings.
+A lychee-red Audio Volume slider (0–100%) now controls system Dialogue volume directly, with a clear note beneath the title. It stays synchronized with WoW audio settings without interrupting active reminders. Resetting addon settings leaves system volume unchanged. The louder voice cues and Dialog channel from 1.1.0 are retained; combat timing rules are unchanged.
 
 ## Soul Reaper
 
