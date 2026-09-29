@@ -1,11 +1,19 @@
 """Create a clean install ZIP from the two addon folders only."""
 import hashlib
+import json
+import re
 from pathlib import Path
 import zipfile
 
 root = Path(__file__).resolve().parents[1]
 source = root / "addon"
-target = root / "dist/LycheeBlightfall-1.0.3.zip"
+versions = [re.search(r"^## Version: (.+)$", (source / folder / (folder + ".toc")).read_text(encoding="utf-8"), re.M).group(1).strip()
+            for folder in ("LycheeBlightfall", "LycheeBlightfall_Core")]
+assert versions[0] == versions[1], "Loader/core version mismatch"
+version = versions[0]
+assert re.fullmatch(r"[0-9]+\.[0-9]+\.[0-9]+", version), "Invalid release version"
+assert json.loads((source / "ncc.json").read_text(encoding="utf-8"))["version"] == version, "NewBeeBox version mismatch"
+target = root / f"dist/LycheeBlightfall-{version}.zip"
 target.parent.mkdir(exist_ok=True)
 files = sorted(p for p in source.rglob("*") if p.is_file() and p.name != "ncc.json" and not any(part.startswith(".") for part in p.relative_to(source).parts))
 assert {p.relative_to(source).parts[0] for p in files} == {"LycheeBlightfall", "LycheeBlightfall_Core"}

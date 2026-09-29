@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.0.4 — 2026-09-29
+
+- Keep the current burst timeline when changing font size, sounds, or lead times, without replaying announced cues.
+- Stop display updates at zero while keeping the action prompt visible; resume if the target moves into the future.
+- Avoid redundant nameplate scans on GCD, proc-overlay, and incremental nameplate events.
+- Fix missed countdown refreshes when a previously observed GCD duration becomes fresh again.
+- Align package and platform versions at 1.0.4; existing Soul Reaper and Blightfall timing rules are unchanged.
+
 ## 1.0.3 — 2026-09-28
 
 - With Heart, prepare Soul Reaper with about 9 seconds remaining in both ST and AoE.

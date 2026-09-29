@@ -2,6 +2,10 @@
 
 Soul Reaper and Blightfall countdowns and voice cues for Retail San'layn Unholy Death Knights. The in-game UI and bundled voices are Chinese.
 
+## Version 1.0.4
+
+Changing font size, sounds, or lead times now preserves the current timeline. Redundant nameplate scans are reduced, display updates stop at zero, and fresh GCD observations refresh the countdown correctly. Existing Reaper and Blightfall timing rules are unchanged.
+
 ## Soul Reaper
 
 - With an observed Heart use: single-target and AoE both prepare Reaper with about 9 seconds left on its 20-second window, approximately 11 seconds after using the trinket.

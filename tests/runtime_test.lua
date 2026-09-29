@@ -6,7 +6,8 @@ local ns = {}
 local units, plates = {}, {}
 local knowsVisceral, rejectOverlay, knowsReaping = true, false, false
 local soundFiles = {}
-function UnitIsPlayer(unit) return units[unit].player or false end
+local enemyReads=0
+function UnitIsPlayer(unit) enemyReads=enemyReads+1; return units[unit].player or false end
 function UnitCanAttack(_,unit) return units[unit].attackable ~= false end
 function UnitIsDeadOrGhost(unit) return units[unit].dead or false end
 function UnitAffectingCombat(unit) return units[unit].combat end
@@ -290,4 +291,36 @@ advance(439)
 eq(ns.Display.target,442,"without Reaping fallback uses DT")
 event("PLAYER_REGEN_ENABLED")
 eq(pending(),0,"reset clears all work")
+advance(500)
+cast(1233448,"settings-preserve-dt")
+advance(509)
+local originalTarget, originalSounds = ns.Display.target, sounds
+ns.db.fontSize=40
+ns.db.sound="another"
+ns.ApplySettings()
+eq(ns.Display.target,originalTarget,"appearance and voice edits preserve observed window")
+eq(sounds,originalSounds,"settings edits do not replay announced voice")
+eq(pending(),1,"settings preserve one scheduled wake")
+local reads=enemyReads
+event("SPELL_ACTIVATION_OVERLAY_SHOW",81340)
+eq(enemyReads,reads,"overlay does not rescan enemy plates")
+cooldown={duration=1,modRate=1}
+event("SPELL_UPDATE_COOLDOWN")
+eq(enemyReads,reads,"GCD change does not rescan enemy plates")
+eq(ns.Display.target,513,"GCD change still updates countdown")
+ns.db.textEnabled=false
+ns.ApplySettings()
+eq(ns.Display.target,nil,"text toggle hides an active cue")
+ns.db.textEnabled=true
+ns.ApplySettings()
+eq(ns.Display.target,513,"text toggle restores same active window")
+eq(sounds,originalSounds,"text toggles cannot replay voice")
+ns.db.enabled=false
+ns.ApplySettings()
+eq(pending(),0,"disabling monitoring cancels timers")
+eq(f.events.UNIT_SPELLCAST_SUCCEEDED,nil,"disabling monitoring unregisters casts")
+ns.db.enabled=true
+ns.ApplySettings()
+eq(ns.Display.target,nil,"reenabling never restores discarded history")
+eq(pending(),0,"reenabling remains idle until a new cycle")
 print("Runtime assertions passed: " .. count)

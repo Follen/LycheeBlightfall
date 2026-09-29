@@ -54,7 +54,7 @@ end
 function Engine:SetGCD(duration, now)
     -- A zero duration means no active GCD, not a zero-length GCD.
     if type(duration) ~= "number" or duration ~= duration or duration < 0.5 or duration > 2 then return false end
-    local changed = math.abs(self.gcd - duration) > 0.001
+    local changed = math.abs(self:GCD(now) - duration) > 0.001
     self.gcd, self.gcdAt = duration, now
     return changed
 end

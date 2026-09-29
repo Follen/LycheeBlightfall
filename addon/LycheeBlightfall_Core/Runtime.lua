@@ -35,10 +35,10 @@ function ns.PlayVoice(force, action)
     if type(path) == "number" then PlaySound(path, "Master")
     else PlaySoundFile(path, "Master") end
 end
-function ns.Refresh()
+function ns.Refresh(refreshEnemies)
     cancelTimer()
     if not active then ns.Display:Hide(); return end
-    if engine.armed then enemies:Refresh() end
+    if engine.armed and refreshEnemies ~= false then enemies:Refresh() end
     local aoe = enemies:IsAOE()
     local state = engine:Update(GetTime(), ns.db, reaping, aoe, visceral)
     if not engine.armed then frame:UnregisterEvent("SPELL_UPDATE_COOLDOWN") end
@@ -125,10 +125,11 @@ function app.SetEligible(value)
     ns.SettingsUI:Refresh()
 end
 function ns.ApplySettings()
-    -- Configuration changes take effect on the next transformation.
-    clearCycle()
+    -- Appearance/lead/sound edits preserve the observed casts and voice latch.
+    -- activate still clears everything when monitoring is disabled.
     ns.Display:Apply()
     activate()
+    ns.Refresh(false)
 end
 function ns.ResetSettings()
     for key, value in pairs(defaults) do ns.db[key] = value end
@@ -176,16 +177,16 @@ frame:SetScript("OnEvent", function(_, event, unit, castGUID, spellID)
         elseif unit == ns.Engine.SUDDEN_DOOM then
             engine:Overlay(event == "SPELL_ACTIVATION_OVERLAY_SHOW", GetTime())
         else return end
-        if engine.armed then ns.Refresh() end
+        if engine.armed then ns.Refresh(false) end
     elseif event == "SPELL_UPDATE_COOLDOWN" then
-        if observeGCD() then ns.Refresh() end
+        if observeGCD() then ns.Refresh(false) end
     elseif event == "NAME_PLATE_UNIT_ADDED" or event == "NAME_PLATE_UNIT_REMOVED"
         or event == "UNIT_FLAGS" or event == "UNIT_FACTION" then
         local before = enemies:IsAOE()
         if event == "NAME_PLATE_UNIT_ADDED" then enemies:Add(unit)
         elseif event == "NAME_PLATE_UNIT_REMOVED" then enemies:Remove(unit)
         else enemies:Update(unit) end
-        if engine.armed and before ~= enemies:IsAOE() then ns.Refresh() end
+        if engine.armed and before ~= enemies:IsAOE() then ns.Refresh(false) end
     else
         clearCycle()
         if event == "PLAYER_ENTERING_WORLD" or event == "CHALLENGE_MODE_START" then enemies:Rebuild()

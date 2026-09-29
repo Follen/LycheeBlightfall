@@ -2,7 +2,7 @@
 ## Title: |cffd53c49[荔枝]|r智能吞病收割提醒
 ## Notes: 萨莱因邪恶死亡骑士的吞病与收割时机提醒
 ## Author: Lychee
-## Version: 1.0.3
+## Version: 1.0.4
 ## IconTexture: Interface\AddOns\LycheeBlightfall\Media\lychee-logo.tga
 
 Loader.lua

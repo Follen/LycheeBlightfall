@@ -12,6 +12,7 @@ local function render()
     local value = remaining > 0 and string.format("%s |cffd53c49%.1fs|r", label, math.ceil(remaining * 10) / 10)
         or "|cffd53c49" .. label .. "|r"
     if value ~= lastText then text:SetText(value); lastText = value end
+    if remaining == 0 then stopTicker() end
 end
 function Display:Create()
     if frame then return end
@@ -66,7 +67,7 @@ function Display:Show(at, nextAction)
     action = nextAction
     render()
     frame:Show()
-    if not ticker then ticker = C_Timer.NewTicker(0.1, render) end
+    if target > GetTime() and not ticker then ticker = C_Timer.NewTicker(0.1, render) end
 end
 function Display:SetUnlocked(unlocked)
     self:Create()

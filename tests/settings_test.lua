@@ -216,8 +216,13 @@ local function scenario(canvasVisible, viewport)
     eq(ns.Display.unlocked,true,"unlock shows the mover")
     eq(unlock.label.text,"锁定位置","reopening settings offers locking")
     -- Run the actual mover, including its direct Done action and drag persistence.
-    C_Timer={NewTicker=function() return {Cancel=function()end} end}
-    function GetTime() return 0 end
+    local displayTime, displayTimers=0,{}
+    C_Timer={NewTicker=function(_,callback)
+        local timer={callback=callback,Cancel=function(self) self.cancelled=true end}
+        displayTimers[#displayTimers+1]=timer
+        return timer
+    end}
+    function GetTime() return displayTime end
     ns.Refresh=function() end
     assert(loadfile("addon/LycheeBlightfall_Core/Display.lua"))("Test",ns)
     ns.Display:SetUnlocked(true)
@@ -243,7 +248,17 @@ local function scenario(canvasVisible, viewport)
     eq(not not prompt,true,"actual display renders the reaper cue")
     ns.Display:Show(2)
     eq(prompt.text:find("准备吞病",1,true)==1,true,"same line returns to swallow without stale label")
+    eq(#displayTimers,1,"retargeting reuses the same display ticker")
+    displayTime=2
+    displayTimers[1].callback()
+    eq(displayTimers[1].cancelled,true,"zero countdown stops refreshing")
+    eq(mover:IsShown(),true,"zero countdown keeps the action prompt visible")
+    ns.Display:Show(2)
+    eq(#displayTimers,1,"expired target cannot restart ticker")
+    ns.Display:Show(4)
+    eq(#displayTimers,2,"extended future target restarts ticker")
     ns.Display:Hide()
+    eq(displayTimers[2].cancelled,true,"hiding cancels restarted ticker")
 end
 scenario(true)
 scenario(false)
