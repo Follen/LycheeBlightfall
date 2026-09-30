@@ -128,11 +128,12 @@ end
 function Engine:Update(now, options, useReaper, useVisceral)
     if not self.armed then return nil end
     if not options.textEnabled and not options.soundEnabled then return nil end
-    if self.heartEnd and now >= self.heartEnd then self:ResetCycle(); return nil end
-    if useReaper and not self.srEnd then
-        -- Never announce a fictitious swallow before Reaper actually lands.
-        -- Heart and transformation both bound how long this cycle can wait.
-        local wake = math.min(self.dtEnd, self.heartEnd or math.huge)
+    -- Heart can prompt a swallow on its own. Once it fades, an actual Reaper
+    -- window may still prompt one if Blightfall has not been cast.
+    if self.heartEnd and now >= self.heartEnd then self.heartEnd = nil end
+    if useReaper and not self.srEnd and not self.heartEnd then
+        -- Without Heart, wait for an observed Reaper rather than guessing it.
+        local wake = self.dtEnd
         if now >= wake then self:ResetCycle(); return nil end
         return { wake = wake, waitingReaper = true }
     end
@@ -140,9 +141,10 @@ function Engine:Update(now, options, useReaper, useVisceral)
     if useReaper and self.srEnd then
         -- Reaping follows the observed Soul Reaper, not a guessed window.
         deadline, reason = self.srEnd, "soul_reaper"
+    elseif useReaper and self.heartEnd then
+        deadline, reason = self.heartEnd, "heart"
     end
-    -- An observed Heart is a hard deadline, even if Reaper or transformation
-    -- would otherwise last longer.
+    -- Whichever active condition ends first determines the earlier cue.
     if self.heartEnd and self.heartEnd < deadline then
         deadline, reason = self.heartEnd, "heart"
     end
@@ -151,11 +153,6 @@ function Engine:Update(now, options, useReaper, useVisceral)
     local readyAt = math.max(now,
         useReaper and self.srEnd and self.srEnd - 8 + gcd or now,
         self.spenderAt and self.spenderAt + gcd or now)
-    if reason == "heart" and readyAt >= deadline - 0.15 then
-        -- No post-Reaper/spender GCD fits before Heart expires. A haste change
-        -- may be observed before expiry, so retain the cycle without a cue.
-        return { wake = deadline, waitingGCD = true }
-    end
     local base = deadline - 2 * gcd
     local target = base
     local strengthCovers = useVisceral and self.strengthEnd

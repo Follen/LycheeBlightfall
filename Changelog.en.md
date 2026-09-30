@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.1.3 — 2026-09-30
+
+- Heart and Soul Reaper can each trigger a Blightfall cue. When Heart expires first, cue about two GCDs before it ends even if Reaper has not been cast.
+- A late Reaper or occupied GCD no longer silences the urgent cue. If Reaper remains active after Heart expires, continue using its window.
+
 ## 1.1.2 — 2026-09-30
 
 - Use single-target Reaper and Blightfall timing for every target count; remove nameplate counting and its events.

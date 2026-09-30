@@ -6,9 +6,9 @@
 
 Soul Reaper and Blightfall countdowns and voice cues for Retail San'layn Unholy Death Knights. The in-game UI and bundled voices are Chinese.
 
-## Version 1.1.2
+## Version 1.1.3
 
-All target counts now use the single-target cue timing; nameplate counting has been removed. A fresh transformation on a later wave schedules a new Reaper cue. An observed Heart expiry is a hard deadline for that Blightfall cycle. If a late Reaper leaves no GCD to cast Blightfall before Heart expires, the addon does not cue an impossible cast after Heart.
+Heart and Soul Reaper can each trigger a Blightfall cue. When Heart expires first, the addon cues about two GCDs beforehand even without a Reaper cast. A late Reaper or occupied GCD no longer silences that urgent reminder. All target counts still use the same timing without nameplate scans.
 
 ## Soul Reaper
 
@@ -18,9 +18,9 @@ All target counts now use the single-target cue timing; nameplate counting has b
 
 ## Blightfall
 
-- With Reaping and Soul Reaper, wait for the actual Reaper cast, then aim about two GCDs before the earlier of its estimated 8-second window or observed Heart expiry. If the post-Reaper GCD cannot fit before Heart expires, do not cue an impossible Blightfall. Later transformation extensions do not move that deadline.
-- Without an observed Reaper, do not give a premature Blightfall cue. Disabling the Reaper reminder does not change this rule.
-- Without Reaping, use the earlier transformation or observed Heart expiry. Heart expiry ends that cycle even if transformation remains active. Unreadable GCD duration falls back to 1.5 seconds; recent spender GCD occupancy is considered.
+- With Reaping, an observed Heart can prompt Blightfall before Reaper is cast. After an actual Reaper cast, use whichever active window ends first. A late cast or occupied GCD never suppresses a due Heart cue.
+- If Heart expires while Reaper remains active, continue using Reaper's window. Without Heart or an observed Reaper, wait for the actual Reaper cast. Disabling its reminder does not change this rule.
+- Without Reaping, use the earlier transformation or Heart expiry, then any remaining transformation window. Unreadable GCD duration falls back to 1.5 seconds; recent spender GCD occupancy is considered.
 
 ## Observations and limits
 

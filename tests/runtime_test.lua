@@ -311,9 +311,10 @@ ns.ApplySettings()
 eq(ns.Display.target,nil,"reenabling never restores discarded history")
 eq(pending(),0,"reenabling remains idle until a new cycle")
 
--- A late Reaper must not turn an expired Heart into a Blightfall voice cue.
+-- Heart must cue Blightfall even if Reaper is delayed until the final second.
 knowsReaping=true
 LycheeBlightfall.SetEligible(true)
+cooldown={duration=1.5,modRate=1,startTime=549}
 advance(550)
 cast(1297761,"heart-hard-cap")
 cast(1233448,"dt-hard-cap")
@@ -321,11 +322,21 @@ for second=551,555 do
     advance(second)
     cast(47541,"hard-cap-coil-"..second)
 end
+local beforeHeartCue = sounds
+advance(558)
+eq(ns.Display.action,"reaper","Reaper reminder can precede Heart swallow reminder")
+eq(sounds,beforeHeartCue+1,"Reaper voice plays on schedule")
+advance(564)
+eq(ns.Display.target,567,"Heart prompts swallow two GCDs before its expiry")
+eq(sounds,beforeHeartCue+2,"Heart swallow voice plays without a Reaper cast")
 advance(569)
 local beforeLateReaper = sounds
 cast(343294,"sr-too-late-for-heart")
-eq(ns.Display.target,nil,"no impossible Blightfall countdown after late Reaper")
-eq(sounds,beforeLateReaper,"no impossible Blightfall voice after late Reaper")
+eq(ns.Display.target,567,"late Reaper cannot silence the Heart swallow cue")
+eq(sounds,beforeLateReaper,"late Reaper does not replay the swallow voice")
 advance(570)
-eq(pending(),0,"Heart hard deadline clears the cycle")
+eq(ns.Display.target,574,"live Reaper remains a swallow condition after Heart expiry")
+eq(pending(),1,"remaining Reaper window keeps one expiry timer")
+advance(577)
+eq(pending(),0,"Reaper expiry clears the cycle")
 print("Runtime assertions passed: " .. count)
