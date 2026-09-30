@@ -1,0 +1,10 @@
+{
+  "schema": "fupload.v1.dd.plugin.update",
+  "sn": "9ae2960b9d2c49ed861856c39fb11e47",
+  "game_versions": [
+    "12.1.0"
+  ],
+  "file": "C:\\Users\\follen\\.codex\\worktrees\\late-heart-cue\\Lychee Blightfall\\dist\\LycheeBlightfall-1.1.2.zip",
+  "version": "1.1.2",
+  "update_desc": "<p>所有目标数量统一采用单体收割、吞病时机，移除姓名板计数及相关事件。</p><p>无乌心时，新一轮突变后的收割仍按约 7 秒时机提醒，覆盖相隔 45 秒的波次。</p><p>观察到乌心时，将其结束时间设为本轮吞病的硬截止；公共冷却已赶不上时不报过期后的吞病。</p>"
+}

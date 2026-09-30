@@ -18,17 +18,17 @@
   ],
   "platforms": {
     "newbeebox": {
-      "file_id": 619929,
-      "version": "1.1.1",
+      "file_id": 621230,
+      "version": "1.1.2",
       "id": 27959,
       "status": "approved-public"
     },
     "dd": {
-      "version": "1.1.1",
+      "version": "1.1.2",
       "share_code": "814384",
       "sn": "9ae2960b9d2c49ed861856c39fb11e47",
       "status": "current-version-and-description-confirmed",
-      "version_sn": "9bcbf4164d7b4b0e8b9aabec50d1f64e"
+      "version_sn": "4f3329df76664b5487888f080b6cfe24"
     }
   }
 }
