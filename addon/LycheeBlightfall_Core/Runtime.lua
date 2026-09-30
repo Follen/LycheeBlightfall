@@ -1,7 +1,6 @@
 local addonName, ns = ...
 local app = LycheeBlightfall
 local engine = ns.Engine.New()
-local enemies = ns.Enemies.New()
 local frame = CreateFrame("Frame")
 local timer, generation, active, ready, reaping = nil, 0, false, false, false
 local visceral = false
@@ -35,18 +34,16 @@ function ns.PlayVoice(force, action)
     if type(path) == "number" then PlaySound(path, "Dialog")
     else PlaySoundFile(path, "Dialog") end
 end
-function ns.Refresh(refreshEnemies)
+function ns.Refresh()
     cancelTimer()
     if not active then ns.Display:Hide(); return end
-    if engine.armed and refreshEnemies ~= false then enemies:Refresh() end
-    local aoe = enemies:IsAOE()
-    local state = engine:Update(GetTime(), ns.db, reaping, aoe, visceral)
+    local state = engine:Update(GetTime(), ns.db, reaping, visceral)
     if not engine.armed then frame:UnregisterEvent("SPELL_UPDATE_COOLDOWN") end
     if not state then ns.Display:Hide(); return end
     -- One line / one voice at a time. Blightfall always wins when due.
     local reaperState
     if not state.show and not state.voice and not engine.textShown and not engine.voiced then
-        reaperState = engine:UpdateReaper(GetTime(), ns.db, reaping, aoe)
+        reaperState = engine:UpdateReaper(GetTime(), ns.db, reaping)
     end
     if reaperState then
         state.wake = math.min(state.wake, reaperState.wake)
@@ -72,15 +69,10 @@ local function observeGCD()
     local duration, rate = info.duration, info.modRate
     if not public(duration) or not public(rate) then return false end
     if type(duration) ~= "number" or duration ~= duration or duration < 0 then return false end
-    if duration == 0 then engine:SetReaperReady(GetTime()); return false end
+    if duration == 0 then return false end
     if rate == nil then rate = 1 end
     if type(rate) ~= "number" or rate <= 0 then return false end
-    local now, start = GetTime(), info.startTime
-    if public(start) and type(start) == "number" and start == start and start <= now then
-        local ends = start + duration / rate
-        if ends >= now and ends <= now + 2 then engine:SetReaperReady(ends) end
-    end
-    return engine:SetGCD(duration / rate, now)
+    return engine:SetGCD(duration / rate, GetTime())
 end
 local function activate()
     if not ready then return end
@@ -93,17 +85,12 @@ local function activate()
     visceral = not not nextVisceral
     frame:UnregisterAllEvents()
     clearCycle()
-    enemies:Clear()
     if active then
         frame:RegisterUnitEvent("UNIT_SPELLCAST_SUCCEEDED", "player")
         frame:RegisterEvent("PLAYER_REGEN_ENABLED")
         frame:RegisterEvent("PLAYER_ENTERING_WORLD")
         frame:RegisterEvent("PLAYER_DEAD")
         frame:RegisterEvent("CHALLENGE_MODE_START")
-        frame:RegisterEvent("NAME_PLATE_UNIT_ADDED")
-        frame:RegisterEvent("NAME_PLATE_UNIT_REMOVED")
-        frame:RegisterEvent("UNIT_FLAGS")
-        frame:RegisterEvent("UNIT_FACTION")
         if visceral then
             -- Ordinary events, not hooks into pooled/forbidden UI objects.
             -- An unavailable registration only disables proc inference.
@@ -114,7 +101,6 @@ local function activate()
                 frame:UnregisterEvent("SPELL_ACTIVATION_OVERLAY_HIDE")
             end
         end
-        enemies:Rebuild()
     elseif ns.Display.unlocked then
         ns.Display:SetUnlocked(false)
     end
@@ -129,7 +115,7 @@ function ns.ApplySettings()
     -- activate still clears everything when monitoring is disabled.
     ns.Display:Apply()
     activate()
-    ns.Refresh(false)
+    ns.Refresh()
 end
 function ns.ResetSettings()
     for key, value in pairs(defaults) do ns.db[key] = value end
@@ -177,20 +163,11 @@ frame:SetScript("OnEvent", function(_, event, unit, castGUID, spellID)
         elseif unit == ns.Engine.SUDDEN_DOOM then
             engine:Overlay(event == "SPELL_ACTIVATION_OVERLAY_SHOW", GetTime())
         else return end
-        if engine.armed then ns.Refresh(false) end
+        if engine.armed then ns.Refresh() end
     elseif event == "SPELL_UPDATE_COOLDOWN" then
-        if observeGCD() then ns.Refresh(false) end
-    elseif event == "NAME_PLATE_UNIT_ADDED" or event == "NAME_PLATE_UNIT_REMOVED"
-        or event == "UNIT_FLAGS" or event == "UNIT_FACTION" then
-        local before = enemies:IsAOE()
-        if event == "NAME_PLATE_UNIT_ADDED" then enemies:Add(unit)
-        elseif event == "NAME_PLATE_UNIT_REMOVED" then enemies:Remove(unit)
-        else enemies:Update(unit) end
-        if engine.armed and before ~= enemies:IsAOE() then ns.Refresh(false) end
+        if observeGCD() then ns.Refresh() end
     else
         clearCycle()
-        if event == "PLAYER_ENTERING_WORLD" or event == "CHALLENGE_MODE_START" then enemies:Rebuild()
-        else enemies:Refresh() end
     end
 end)
 frame:RegisterEvent("ADDON_LOADED")

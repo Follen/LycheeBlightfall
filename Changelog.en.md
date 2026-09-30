@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.1.2 — 2026-09-30
+
+- Use single-target Reaper and Blightfall timing for every target count; remove nameplate counting and its events.
+- Keep the roughly seven-second no-Heart Reaper cue on a new transformation, including waves 45 seconds apart.
+- Include observed Heart expiry in the Blightfall window while allowing a post-Reaper GCD.
+
 ## 1.1.1 — 2026-09-29
 
 - Add a lychee-red Audio Volume slider to voice settings, adjustable from 0 to 100%.
