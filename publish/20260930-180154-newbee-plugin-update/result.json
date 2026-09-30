@@ -1,0 +1,14 @@
+{
+  "source_commit": "b460bf3761fce45f1344193fa88c631b3ad105f9",
+  "version": "1.1.3",
+  "target_id": 27959,
+  "file_id": 621367,
+  "game_versions": ["12.1.0"],
+  "steps": [
+    {"plan": "01-update.json", "result": "success", "readback": "info and versions both report 1.1.3 with the expected changelog"},
+    {"plan": "02-edit.json", "result": "success", "readback": "info description exactly matches local 1.1.3 Markdown after line-ending normalization"}
+  ],
+  "final_visibility": "public",
+  "final_review_status": "approved",
+  "local_zip_sha256": "097ac3cef31818bc6f5c159f19da211e91ce9958aa5762561bf19c2dd20e5958"
+}

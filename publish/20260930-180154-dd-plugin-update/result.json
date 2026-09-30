@@ -1,0 +1,15 @@
+{
+  "source_commit": "b460bf3761fce45f1344193fa88c631b3ad105f9",
+  "version": "1.1.3",
+  "target_sn": "9ae2960b9d2c49ed861856c39fb11e47",
+  "version_sn": "4fe713dcc26f405b82a52fda3ada4880",
+  "game_versions": ["12.1.0"],
+  "release_type": 1,
+  "steps": [
+    {"plan": "01-update.json", "result": "success", "readback": "author list and version history confirm 1.1.3 after an initial projection delay; ZIP was not retried"},
+    {"plan": "02-edit.json", "result": "success", "readback": "independent detail's exposed 1000-character HTML prefix contains the 1.1.3 heading and Heart rule"}
+  ],
+  "final_scope": "public",
+  "session_cleanup_complete": true,
+  "local_zip_sha256": "097ac3cef31818bc6f5c159f19da211e91ce9958aa5762561bf19c2dd20e5958"
+}
