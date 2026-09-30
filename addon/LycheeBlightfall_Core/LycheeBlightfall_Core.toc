@@ -2,7 +2,7 @@
 ## Title: |cffd53c49[荔枝]|r智能吞病收割提醒 · 核心
 ## Notes: 由[荔枝]智能吞病收割提醒按需加载
 ## Author: Lychee
-## Version: 1.1.1
+## Version: 1.1.3
 ## Dependencies: LycheeBlightfall
 ## LoadOnDemand: 1
 ## SavedVariablesPerCharacter: LycheeBlightfallDB
@@ -12,7 +12,6 @@ Libs/LibStub.lua
 Libs/CallbackHandler-1.0.lua
 Libs/LibSharedMedia-3.0.lua
 Engine.lua
-Enemies.lua
 Theme.lua
 About.lua
 Display.lua

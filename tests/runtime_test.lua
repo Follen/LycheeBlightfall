@@ -3,15 +3,8 @@ local now, frames, timers, sounds, count = 0, {}, {}, 0, 0
 local secret = {}
 local cooldown = {duration=1.5, modRate=1}
 local ns = {}
-local units, plates = {}, {}
 local knowsVisceral, rejectOverlay, knowsReaping = true, false, false
 local soundFiles = {}
-local enemyReads=0
-function UnitIsPlayer(unit) enemyReads=enemyReads+1; return units[unit].player or false end
-function UnitCanAttack(_,unit) return units[unit].attackable ~= false end
-function UnitIsDeadOrGhost(unit) return units[unit].dead or false end
-function UnitAffectingCombat(unit) return units[unit].combat end
-C_NamePlate = {GetNamePlates=function() return plates end}
 local function eq(a, b, message)
     assert(a == b, message .. ": " .. tostring(a) .. " ~= " .. tostring(b))
     count = count + 1
@@ -75,7 +68,6 @@ ns.Display = {Hide=function(self) self.target=nil; self.action=nil end,
 ns.SettingsUI = {Register=function(self) self.registered=true end,
     Refresh=function() end, Open=function() end}
 assert(loadfile("addon/LycheeBlightfall_Core/Engine.lua"))("LycheeBlightfall_Core",ns)
-assert(loadfile("addon/LycheeBlightfall_Core/Enemies.lua"))("LycheeBlightfall_Core",ns)
 assert(loadfile("addon/LycheeBlightfall_Core/Runtime.lua"))("LycheeBlightfall_Core",ns)
 local f = frames[1]
 local function event(name, ...)
@@ -89,6 +81,7 @@ eq(ns.db.x,0,"infinite position reset")
 eq(ns.SettingsUI.registered,true,"native settings registered")
 eq(pending(),0,"idle no timers")
 eq(f.events.SPELL_UPDATE_COOLDOWN,nil,"idle no cooldown events")
+eq(f.events.NAME_PLATE_UNIT_ADDED,nil,"no nameplate-based combat mode")
 cast(1233448,"dt1")
 eq(pending(),1,"one scheduled wake")
 eq(f.events.SPELL_UPDATE_COOLDOWN,true,"GCD listener armed")
@@ -145,41 +138,37 @@ eq(pending(),0,"death clears timers")
 eq(ns.Display.target,nil,"death clears display")
 knowsReaping=true
 LycheeBlightfall.SetEligible(true)
+ns.db.reaperEnabled=true
 advance(70)
 cast(1233448,"dt7")
 advance(71)
 cast(343294,"sr7")
 advance(73)
-eq(ns.Display.target,76,"single target follows SR")
-for i=1,3 do
-    local unit="nameplate"..i
-    units[unit]={combat=true}
-    plates[i]={unitToken=unit}
-    event("NAME_PLATE_UNIT_ADDED",unit)
-end
-eq(ns.Display.target,82,"third engaged plate switches current cycle to AOE")
+eq(ns.Display.target,76,"swallow follows actual SR")
+event("NAME_PLATE_UNIT_ADDED","nameplate1")
+event("NAME_PLATE_UNIT_ADDED","nameplate2")
+event("NAME_PLATE_UNIT_ADDED","nameplate3")
+eq(ns.Display.target,76,"nameplates cannot change the countdown")
 advance(80)
-eq(ns.Display.target,82,"AOE survives expired SR")
-units.nameplate3.dead=true
-event("UNIT_FLAGS","nameplate3")
-eq(ns.Display.target,nil,"return to single after expired SR hides stale recommendation")
-event("UNIT_FLAGS",secret)
-eq(pending(),0,"secret nameplate event does not schedule unsafe work")
-units.nameplate3.dead=false
-event("UNIT_FLAGS","nameplate3")
-advance(100)
+eq(ns.Display.target,nil,"expired SR ends the cycle")
+eq(pending(),0,"expired SR leaves no timer")
+advance(115) -- A fresh pull 45 seconds after the previous transformation.
+local waveSounds = sounds
 cast(1233448,"dt8")
-advance(109)
-eq(ns.Display.target,112,"new automatic AOE cycle works")
-eq(sounds,5,"AOE branch switch never repeats voice")
+advance(119.01)
+eq(ns.Display.action,"reaper","45-second wave without Heart announces Reaper")
+eq(ns.Display.target,122.01,"45-second wave retains default single-target timing")
+eq(sounds,waveSounds+1,"45-second wave plays one Reaper voice cue")
 eq(f.events.SPELL_ACTIVATION_OVERLAY_SHOW,true,"public proc event registered for selected talent")
 event("PLAYER_REGEN_ENABLED")
+knowsReaping=false
+LycheeBlightfall.SetEligible(true)
 advance(200)
 cast(1233448,"dt-visceral")
 advance(209)
 event("SPELL_ACTIVATION_OVERLAY_SHOW",81340)
 advance(209.1)
-eq(ns.Display.target,212,"AOE prepares without delaying swallow")
+eq(ns.Display.target,212,"proc preparation does not delay swallow")
 eq(ns.Display.action,nil,"proc preparation keeps the standard swallow prompt")
 local once=sounds
 cast(207317,"epidemic-visceral")
@@ -213,31 +202,31 @@ cast(1233448,"dt-unavailable")
 advance(249)
 eq(ns.Display.target,252,"unavailable proc events retain baseline reminder")
 
--- New dual-reminder behavior: actual casts, one timer, both branches.
+-- Dual reminders use actual casts and one timer for every pull.
 event("PLAYER_REGEN_ENABLED")
+knowsReaping=true
+LycheeBlightfall.SetEligible(true)
 ns.db.reaperEnabled=true
 local initialSounds=sounds
 advance(300)
-cast(1297761,"heart-reaper-aoe")
-cast(1233448,"dt-reaper-aoe")
+cast(1297761,"heart-reaper")
+cast(1233448,"dt-reaper")
 advance(307.9)
 eq(ns.Display.target,nil,"Heart Reaper waits for lead")
 advance(308)
-eq(ns.Display.action,"reaper","AOE shares Heart timing")
+eq(ns.Display.action,"reaper","Heart determines Reaper timing")
 eq(ns.Display.target,311,"Heart plus eleven seconds")
 eq(sounds,initialSounds+1,"Reaper audio once")
 advance(308.5)
-cast(207317,"aoe-extension")
+cast(207317,"extension")
 eq(ns.Display.target,311,"extension leaves Reaper fixed")
 advance(309)
-cast(343294,"aoe-sr")
+cast(343294,"sr")
 eq(ns.Display.target,nil,"actual Reaper removes prompt")
-advance(310)
-eq(ns.Display.target,313,"AOE swallow still uses DT tail")
+advance(311)
+eq(ns.Display.target,314,"swallow uses the actual SR window")
 eq(sounds,initialSounds+2,"swallow voice separate")
 event("PLAYER_REGEN_ENABLED")
-event("NAME_PLATE_UNIT_REMOVED","nameplate2")
-event("NAME_PLATE_UNIT_REMOVED","nameplate3")
 advance(330)
 cast(1297761,"heart-reaper-st")
 cast(1233448,"dt-reaper-st")
@@ -278,10 +267,11 @@ eq(pending(),1,"waiting retains one expiry timer")
 advance(405)
 eq(ns.Display.target,nil,"missed SR expires")
 eq(pending(),0,"no timers after expiry")
-for i=2,3 do event("NAME_PLATE_UNIT_ADDED","nameplate"..i) end
 advance(410)
-cast(1233448,"dt-immediate-aoe")
-eq(ns.Display.action,"reaper","AOE without Heart is immediate too")
+cast(1233448,"dt-next-wave")
+eq(ns.Display.action,nil,"without Heart still waits for the default Reaper lead")
+advance(414.01)
+eq(ns.Display.action,"reaper","next wave announces Reaper at the default lead")
 event("PLAYER_REGEN_ENABLED")
 knowsReaping=false
 LycheeBlightfall.SetEligible(true)
@@ -301,12 +291,9 @@ ns.ApplySettings()
 eq(ns.Display.target,originalTarget,"appearance and voice edits preserve observed window")
 eq(sounds,originalSounds,"settings edits do not replay announced voice")
 eq(pending(),1,"settings preserve one scheduled wake")
-local reads=enemyReads
 event("SPELL_ACTIVATION_OVERLAY_SHOW",81340)
-eq(enemyReads,reads,"overlay does not rescan enemy plates")
 cooldown={duration=1,modRate=1}
 event("SPELL_UPDATE_COOLDOWN")
-eq(enemyReads,reads,"GCD change does not rescan enemy plates")
 eq(ns.Display.target,513,"GCD change still updates countdown")
 ns.db.textEnabled=false
 ns.ApplySettings()
@@ -323,4 +310,33 @@ ns.db.enabled=true
 ns.ApplySettings()
 eq(ns.Display.target,nil,"reenabling never restores discarded history")
 eq(pending(),0,"reenabling remains idle until a new cycle")
+
+-- Heart must cue Blightfall even if Reaper is delayed until the final second.
+knowsReaping=true
+LycheeBlightfall.SetEligible(true)
+cooldown={duration=1.5,modRate=1,startTime=549}
+advance(550)
+cast(1297761,"heart-hard-cap")
+cast(1233448,"dt-hard-cap")
+for second=551,555 do
+    advance(second)
+    cast(47541,"hard-cap-coil-"..second)
+end
+local beforeHeartCue = sounds
+advance(558)
+eq(ns.Display.action,"reaper","Reaper reminder can precede Heart swallow reminder")
+eq(sounds,beforeHeartCue+1,"Reaper voice plays on schedule")
+advance(564)
+eq(ns.Display.target,567,"Heart prompts swallow two GCDs before its expiry")
+eq(sounds,beforeHeartCue+2,"Heart swallow voice plays without a Reaper cast")
+advance(569)
+local beforeLateReaper = sounds
+cast(343294,"sr-too-late-for-heart")
+eq(ns.Display.target,567,"late Reaper cannot silence the Heart swallow cue")
+eq(sounds,beforeLateReaper,"late Reaper does not replay the swallow voice")
+advance(570)
+eq(ns.Display.target,574,"live Reaper remains a swallow condition after Heart expiry")
+eq(pending(),1,"remaining Reaper window keeps one expiry timer")
+advance(577)
+eq(pending(),0,"Reaper expiry clears the cycle")
 print("Runtime assertions passed: " .. count)

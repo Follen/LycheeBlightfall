@@ -1,0 +1,15 @@
+{
+  "source_commit": "8baed1d60e33a99d2ac592f2861815f309fb4986",
+  "version": "1.1.2",
+  "target_sn": "9ae2960b9d2c49ed861856c39fb11e47",
+  "version_sn": "4f3329df76664b5487888f080b6cfe24",
+  "game_versions": ["12.1.0"],
+  "release_type": 1,
+  "steps": [
+    {"plan": "01-update.json", "result": "success", "readback": "author list, detail, and version history confirm 1.1.2 after initial projection delay; ZIP was not retried"},
+    {"plan": "02-edit.json", "result": "success", "readback": "provider verified the edit; independent detail's exposed 1000-character HTML prefix matches local 1.1.2 HTML"}
+  ],
+  "final_scope": "public",
+  "session_cleanup_complete": true,
+  "local_zip_sha256": "b8b92300cd7c6d14c80251ae031c5a1b6195cd78534e1b0322f131a3580e7498"
+}

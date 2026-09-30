@@ -1,0 +1,31 @@
+{
+  "target_name": "[荔枝]智能吞病收割提醒",
+  "argv": [
+    "ncc",
+    "wow",
+    "addons",
+    "edit",
+    "27959",
+    "--description",
+    "@../docs/publishing/description.zh-CN.md",
+    "-o",
+    "json"
+  ],
+  "working_directory": "C:\\Users\\follen\\.codex\\worktrees\\late-heart-cue\\Lychee Blightfall\\addon",
+  "channel": "official-ncc",
+  "expected_readback": "info description contains 1.1.3 rules; public-content edit may trigger review",
+  "preserved": [
+    "name",
+    "intro",
+    "categories",
+    "logo",
+    "screenshots",
+    "visibility",
+    "payment"
+  ],
+  "target_id": 27959,
+  "changed": {
+    "description_file": "C:\\Users\\follen\\.codex\\worktrees\\late-heart-cue\\Lychee Blightfall\\docs\\publishing\\description.zh-CN.md"
+  },
+  "action": "plugin-description-edit"
+}

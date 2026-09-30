@@ -1,4 +1,2 @@
-• Add a lychee-red Audio Volume slider to voice settings, adjustable from 0 to 100%.
-• Explain that the slider changes system Dialogue volume and synchronize it with WoW audio settings.
-• Volume changes preserve active reminders; resetting addon settings leaves system volume unchanged.
-• Listen for volume changes only while the settings page is open, without polling. Reaper and Blightfall timing rules are unchanged.
+• Heart and Soul Reaper can each trigger a Blightfall cue. When Heart expires first, cue about two GCDs before it ends even if Reaper has not been cast.
+• A late Reaper or occupied GCD no longer silences the urgent cue. If Reaper remains active after Heart expires, continue using its window.

@@ -20,7 +20,7 @@ end
 function Engine:ResetCycle()
     self.armed = false
     self.dtEnd, self.srEnd, self.heartEnd = nil, nil, nil
-    self.reaperAt, self.dtStart, self.reaperReadyAt = nil, nil, nil
+    self.dtStart = nil
     self.reaperTextShown, self.reaperVoiced = false, false
     self.textShown, self.voiced = false, false
 end
@@ -59,11 +59,6 @@ function Engine:SetGCD(duration, now)
     return changed
 end
 
-function Engine:SetReaperReady(at)
-    if not self.armed or self.reaperAt then return end
-    self.reaperReadyAt = at
-end
-
 function Engine:Cast(spellID, now, castGUID, useVisceral)
     if not self.TRACKED[spellID] then return false end
     if castGUID and castGUID ~= "" then
@@ -80,7 +75,6 @@ function Engine:Cast(spellID, now, castGUID, useVisceral)
         if heartEnd and heartEnd > now then self.heartEnd = heartEnd end
         self.armed, self.dtEnd = true, now + 15
         self.dtStart = now
-        self.reaperAt = nil
         return true
     end
     if spellID == self.HEART then
@@ -109,16 +103,13 @@ function Engine:Cast(spellID, now, castGUID, useVisceral)
     return consumed or self.EXTENDERS[spellID] == true
 end
 
-function Engine:UpdateReaper(now, options, useReaper, aoe)
+function Engine:UpdateReaper(now, options, useReaper)
     if not self.armed or not options.reaperEnabled or not useReaper
-        or self.srEnd or not self.dtStart or now >= self.dtEnd then return nil end
+        or self.srEnd or not self.dtStart or now >= self.dtEnd
+        or self.heartEnd and now >= self.heartEnd then return nil end
     if not options.textEnabled and not options.soundEnabled then return nil end
-    -- Heart optimization is shared by ST/AOE; damage evidence is ST only.
-    -- First refresh follows Runtime's public GCD observation. Freeze the next
-    -- action slot, so later spender GCDs cannot postpone an already due cue.
-    self.reaperAt = self.reaperAt or self.reaperReadyAt or self.dtStart + self:GCD(now)
     local target = self.heartEnd and self.heartEnd > now and self.heartEnd - 9
-        or (aoe and self.reaperAt or self.dtStart + 7.01)
+        or self.dtStart + 7.01
     local state = { target = target, wake = self.dtEnd, action = "reaper" }
     if options.textEnabled then
         local at = target - options.textLead
@@ -134,31 +125,36 @@ function Engine:UpdateReaper(now, options, useReaper, aoe)
     return state
 end
 
-function Engine:Update(now, options, useReaper, aoe, useVisceral)
+function Engine:Update(now, options, useReaper, useVisceral)
     if not self.armed then return nil end
     if not options.textEnabled and not options.soundEnabled then return nil end
-    if not aoe and useReaper and not self.srEnd then
-        -- Never announce a fictitious ST swallow before Reaper actually lands.
-        -- Keep a single expiry wake so a missed cast cannot leave a stale cue.
-        if now >= self.dtEnd then self:ResetCycle(); return nil end
-        return { wake = self.dtEnd, waitingReaper = true }
+    -- Heart can prompt a swallow on its own. Once it fades, an actual Reaper
+    -- window may still prompt one if Blightfall has not been cast.
+    if self.heartEnd and now >= self.heartEnd then self.heartEnd = nil end
+    if useReaper and not self.srEnd and not self.heartEnd then
+        -- Without Heart, wait for an observed Reaper rather than guessing it.
+        local wake = self.dtEnd
+        if now >= wake then self:ResetCycle(); return nil end
+        return { wake = wake, waitingReaper = true }
     end
     local deadline, reason = self.dtEnd, "dark_transformation"
-    if aoe then
-        -- AOE ignores Soul Reaper. Only an observed public Heart use supplies
-        -- the trinket window; other trinkets are not guessed.
-        if self.heartEnd and self.heartEnd > now and self.heartEnd < deadline then
-            deadline, reason = self.heartEnd, "heart"
-        end
-    elseif useReaper and self.srEnd then
-        -- SimC's ST Reaping branch is bounded by Soul Reaper, not DT.
+    if useReaper and self.srEnd then
+        -- Reaping follows the observed Soul Reaper, not a guessed window.
         deadline, reason = self.srEnd, "soul_reaper"
+    elseif useReaper and self.heartEnd then
+        deadline, reason = self.heartEnd, "heart"
+    end
+    -- Whichever active condition ends first determines the earlier cue.
+    if self.heartEnd and self.heartEnd < deadline then
+        deadline, reason = self.heartEnd, "heart"
     end
     if now >= deadline then self:ResetCycle(); return nil end
     local gcd = self:GCD(now)
+    local readyAt = math.max(now,
+        useReaper and self.srEnd and self.srEnd - 8 + gcd or now,
+        self.spenderAt and self.spenderAt + gcd or now)
     local base = deadline - 2 * gcd
     local target = base
-    local readyAt = self.spenderAt and self.spenderAt + gcd or now
     local strengthCovers = useVisceral and self.strengthEnd
         and self.strengthEnd > math.max(now, base, readyAt) + 0.15
     local prepareUntil = base - gcd - 0.2
@@ -171,7 +167,7 @@ function Engine:Update(now, options, useReaper, aoe, useVisceral)
     if self.spenderAt and self.spenderAt + gcd > now then
         target = math.max(target, math.min(self.spenderAt + gcd, deadline - 0.15))
     end
-    -- Recompute on every relevant event, including changes in enemy count.
+    -- Recompute on every relevant cast and observed GCD change.
     local state = { target = target, deadline = deadline, reason = reason, wake = deadline }
     state.strengthCovers = not not strengthCovers
     local prepareAt = base - 3.8

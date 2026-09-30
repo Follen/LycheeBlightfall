@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.1.3 — 2026-09-30
+
+- Heart and Soul Reaper can each trigger a Blightfall cue. When Heart expires first, cue about two GCDs before it ends even if Reaper has not been cast.
+- A late Reaper or occupied GCD no longer silences the urgent cue. If Reaper remains active after Heart expires, continue using its window.
+
+## 1.1.2 — 2026-09-30
+
+- Use single-target Reaper and Blightfall timing for every target count; remove nameplate counting and its events.
+- Keep the roughly seven-second no-Heart Reaper cue on a new transformation, including waves 45 seconds apart.
+- Make observed Heart expiry a hard Blightfall deadline; suppress an impossible post-Heart cue when the GCD cannot fit.
+
 ## 1.1.1 — 2026-09-29
 
 - Add a lychee-red Audio Volume slider to voice settings, adjustable from 0 to 100%.
