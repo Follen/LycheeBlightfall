@@ -90,7 +90,7 @@ s=e:Update(233,opts,false)
 eq(s.target,237,"heart caps extended DT")
 eq(s.deadline,240,"heart remembered when used before DT")
 eq(s.reason,"heart","observed Heart limits a cycle without Reaping")
-eq(e:Update(240,opts,false).deadline,244,"expired Heart returns to active DT")
+eq(e:Update(240,opts,false),nil,"expired Heart ends the cycle despite extended DT")
 -- Public overlay observations are evidence of at most one charge, not a buff scan.
 e:Reset()
 e:Overlay(true, 300)

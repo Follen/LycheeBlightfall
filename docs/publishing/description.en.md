@@ -4,7 +4,7 @@ Soul Reaper and Blightfall countdowns and voice cues for Retail San'layn Unholy 
 
 ## Version 1.1.2
 
-All target counts now use the single-target cue timing; nameplate counting has been removed. A fresh transformation on a later wave schedules a new Reaper cue. An observed Heart expiry also limits the latest Blightfall timing, with room for the GCD. If a late Reaper leaves no room before Heart expires, its observed window remains the fallback.
+All target counts now use the single-target cue timing; nameplate counting has been removed. A fresh transformation on a later wave schedules a new Reaper cue. An observed Heart expiry is a hard deadline for that Blightfall cycle. If a late Reaper leaves no GCD to cast Blightfall before Heart expires, the addon does not cue an impossible cast after Heart.
 
 ## Soul Reaper
 
@@ -14,9 +14,9 @@ All target counts now use the single-target cue timing; nameplate counting has b
 
 ## Blightfall
 
-- With Reaping and Soul Reaper, wait for the actual Reaper cast, then aim about two GCDs before its estimated 8-second window ends. An earlier observed Heart expiry moves the cue forward when a post-Reaper GCD still fits. Later transformation extensions do not move that deadline.
+- With Reaping and Soul Reaper, wait for the actual Reaper cast, then aim about two GCDs before the earlier of its estimated 8-second window or observed Heart expiry. If the post-Reaper GCD cannot fit before Heart expires, do not cue an impossible Blightfall. Later transformation extensions do not move that deadline.
 - Without an observed Reaper, do not give a premature Blightfall cue. Disabling the Reaper reminder does not change this rule.
-- Without Reaping, use the earlier still-active transformation or observed Heart expiry. After Heart expires, an active transformation can still provide a window. Unreadable GCD duration falls back to 1.5 seconds; recent spender GCD occupancy is considered.
+- Without Reaping, use the earlier transformation or observed Heart expiry. Heart expiry ends that cycle even if transformation remains active. Unreadable GCD duration falls back to 1.5 seconds; recent spender GCD occupancy is considered.
 
 ## Observations and limits
 

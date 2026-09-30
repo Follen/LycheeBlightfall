@@ -22,13 +22,26 @@ local cue = late:Update(16.5, options, true)
 assert(cue.reason == "heart" and cue.target == 17,
     "late Reaper must bring the swallow cue forward to the remaining Heart window")
 assert(cue.show and cue.voice, "late cast must alert immediately when the lead time has passed")
-local fallback = late:Update(20.1, options, true)
-assert(fallback and fallback.reason == "soul_reaper" and fallback.target == 21.5,
-    "after Heart fades, an unused Soul Reaper gets its remaining fallback window")
+assert(late:Update(20, options, true) == nil,
+    "observed Heart expiry ends the cycle even while Soul Reaper remains")
+assert(late:Update(20.1, options, true) == nil,
+    "an expired Heart cannot fall back to the remaining Soul Reaper window")
 
 local missed = cycle(19)
 local missedCue = missed:Update(19, options, true)
-assert(missedCue.reason == "soul_reaper" and missedCue.target == 24,
-    "do not promise Heart if the post-Reaper GCD already outlasts it")
+assert(missedCue.waitingGCD and missedCue.wake == 20 and not missedCue.show and not missedCue.voice,
+    "do not promise a Blightfall after the post-Reaper GCD has missed Heart")
+assert(missed:Update(20, options, true) == nil,
+    "an impossible Heart-window swallow ends at Heart expiry")
+
+local waiting = E.New()
+waiting:Cast(E.HEART, 0, "waiting-heart")
+waiting:Cast(E.DT, 1, "waiting-dt")
+for i = 2, 9 do waiting:Cast(47541, i, "waiting-coil" .. i) end
+local beforeReaper = waiting:Update(18, options, true)
+assert(beforeReaper.waitingReaper and beforeReaper.wake == 20,
+    "waiting for Reaper cannot outlive the observed Heart")
+assert(waiting:Update(20, options, true) == nil,
+    "no Reaper by Heart expiry ends the cycle")
 
 print("Late Heart assertions passed")

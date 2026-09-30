@@ -4,7 +4,7 @@
 
 - Use single-target Reaper and Blightfall timing for every target count; remove nameplate counting and its events.
 - Keep the roughly seven-second no-Heart Reaper cue on a new transformation, including waves 45 seconds apart.
-- Include observed Heart expiry in the Blightfall window while allowing a post-Reaper GCD.
+- Make observed Heart expiry a hard Blightfall deadline; suppress an impossible post-Heart cue when the GCD cannot fit.
 
 ## 1.1.1 — 2026-09-29
 

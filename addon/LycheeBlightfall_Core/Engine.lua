@@ -105,7 +105,8 @@ end
 
 function Engine:UpdateReaper(now, options, useReaper)
     if not self.armed or not options.reaperEnabled or not useReaper
-        or self.srEnd or not self.dtStart or now >= self.dtEnd then return nil end
+        or self.srEnd or not self.dtStart or now >= self.dtEnd
+        or self.heartEnd and now >= self.heartEnd then return nil end
     if not options.textEnabled and not options.soundEnabled then return nil end
     local target = self.heartEnd and self.heartEnd > now and self.heartEnd - 9
         or self.dtStart + 7.01
@@ -127,37 +128,36 @@ end
 function Engine:Update(now, options, useReaper, useVisceral)
     if not self.armed then return nil end
     if not options.textEnabled and not options.soundEnabled then return nil end
+    if self.heartEnd and now >= self.heartEnd then self:ResetCycle(); return nil end
     if useReaper and not self.srEnd then
         -- Never announce a fictitious swallow before Reaper actually lands.
-        -- Keep a single expiry wake so a missed cast cannot leave a stale cue.
-        if now >= self.dtEnd then self:ResetCycle(); return nil end
-        return { wake = self.dtEnd, waitingReaper = true }
+        -- Heart and transformation both bound how long this cycle can wait.
+        local wake = math.min(self.dtEnd, self.heartEnd or math.huge)
+        if now >= wake then self:ResetCycle(); return nil end
+        return { wake = wake, waitingReaper = true }
     end
     local deadline, reason = self.dtEnd, "dark_transformation"
     if useReaper and self.srEnd then
-        -- Reaping normally follows Soul Reaper. A late cast can leave Heart
-        -- ending first, so use that earlier window while a swallow can still
-        -- fit after the Reaper GCD. Once Heart is missed, keep the remaining
-        -- Soul Reaper window instead of inventing an active trinket buff.
+        -- Reaping follows the observed Soul Reaper, not a guessed window.
         deadline, reason = self.srEnd, "soul_reaper"
     end
-    -- The observed Heart window is an additional deadline for every cycle.
-    -- With Reaping, keep the Soul Reaper fallback if its GCD already makes
-    -- a Heart-window swallow impossible.
-    if self.heartEnd and self.heartEnd > now and self.heartEnd < deadline then
-        local gcd = self:GCD(now)
-        local readyAt = math.max(now,
-            useReaper and self.srEnd and self.srEnd - 8 + gcd or now,
-            self.spenderAt and self.spenderAt + gcd or now)
-        if readyAt < self.heartEnd - 0.15 then
-            deadline, reason = self.heartEnd, "heart"
-        end
+    -- An observed Heart is a hard deadline, even if Reaper or transformation
+    -- would otherwise last longer.
+    if self.heartEnd and self.heartEnd < deadline then
+        deadline, reason = self.heartEnd, "heart"
     end
     if now >= deadline then self:ResetCycle(); return nil end
     local gcd = self:GCD(now)
+    local readyAt = math.max(now,
+        useReaper and self.srEnd and self.srEnd - 8 + gcd or now,
+        self.spenderAt and self.spenderAt + gcd or now)
+    if reason == "heart" and readyAt >= deadline - 0.15 then
+        -- No post-Reaper/spender GCD fits before Heart expires. A haste change
+        -- may be observed before expiry, so retain the cycle without a cue.
+        return { wake = deadline, waitingGCD = true }
+    end
     local base = deadline - 2 * gcd
     local target = base
-    local readyAt = self.spenderAt and self.spenderAt + gcd or now
     local strengthCovers = useVisceral and self.strengthEnd
         and self.strengthEnd > math.max(now, base, readyAt) + 0.15
     local prepareUntil = base - gcd - 0.2

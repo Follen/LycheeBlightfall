@@ -310,4 +310,22 @@ ns.db.enabled=true
 ns.ApplySettings()
 eq(ns.Display.target,nil,"reenabling never restores discarded history")
 eq(pending(),0,"reenabling remains idle until a new cycle")
+
+-- A late Reaper must not turn an expired Heart into a Blightfall voice cue.
+knowsReaping=true
+LycheeBlightfall.SetEligible(true)
+advance(550)
+cast(1297761,"heart-hard-cap")
+cast(1233448,"dt-hard-cap")
+for second=551,555 do
+    advance(second)
+    cast(47541,"hard-cap-coil-"..second)
+end
+advance(569)
+local beforeLateReaper = sounds
+cast(343294,"sr-too-late-for-heart")
+eq(ns.Display.target,nil,"no impossible Blightfall countdown after late Reaper")
+eq(sounds,beforeLateReaper,"no impossible Blightfall voice after late Reaper")
+advance(570)
+eq(pending(),0,"Heart hard deadline clears the cycle")
 print("Runtime assertions passed: " .. count)
