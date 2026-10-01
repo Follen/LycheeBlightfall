@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.1.4 — 2026-10-01
+
+- Both bundled voice cues use synthesis volume 8 sources, followed by 30% Python gain with soft limiting of full-scale peaks.
+- Reminder timing, settings, and user-selected SharedMedia sounds are unchanged.
+
 ## 1.1.3 — 2026-09-30
 
 - Heart and Soul Reaper can each trigger a Blightfall cue. When Heart expires first, cue about two GCDs before it ends even if Reaper has not been cast.
