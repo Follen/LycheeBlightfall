@@ -14,7 +14,7 @@ args = parser.parse_args()
 key = os.environ.get("MINIMAX_API_KEY") or getpass.getpass("MiniMax API key (hidden): ")
 payload = {
     "model": "speech-2.8-hd", "text": "准备收割" if args.cue == "reaper" else "准备吞病", "stream": False,
-    "voice_setting": {"voice_id": "Chinese (Mandarin)_Warm_Girl", "speed": 1.1, "vol": 10, "pitch": 0},
+    "voice_setting": {"voice_id": "Chinese (Mandarin)_Warm_Girl", "speed": 1.1, "vol": 8, "pitch": 0},
     "audio_setting": {"sample_rate": 32000, "bitrate": 128000, "format": "mp3", "channel": 1},
     "output_format": "hex", "language_boost": "Chinese",
 }
