@@ -21,4 +21,5 @@ Lychee logo copied from the user's sibling Lychee project at their request.
 Bundled prepare-blightfall.ogg and prepare-reaper.ogg generated with MiniMax
 speech-2.8-hd, Chinese (Mandarin)_Warm_Girl, speed: 1.1, vol: 8,
 text: 准备吞病 and 准备收割 respectively, on 2026-10-01.
-Converted to OGG Vorbis without post-generation gain or level matching.
+Converted to OGG Vorbis, then given 30% gain with Python soft peak limiting
+on 2026-10-01. No level matching was applied.
