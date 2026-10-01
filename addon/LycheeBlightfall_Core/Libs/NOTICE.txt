@@ -18,5 +18,7 @@ These files retain their original source headers. The libraries may be replaced
 with compatible versions; no restriction on modifying or debugging them is added.
 
 Lychee logo copied from the user's sibling Lychee project at their request.
-Bundled prepare-blightfall.ogg generated with MiniMax speech-2.8-hd,
-Chinese (Mandarin)_Warm_Girl, text: 准备吞病, speed: 1.1, on 2026-09-28.
+Bundled prepare-blightfall.ogg and prepare-reaper.ogg generated with MiniMax
+speech-2.8-hd, Chinese (Mandarin)_Warm_Girl, speed: 1.1, vol: 10,
+text: 准备吞病 and 准备收割 respectively, on 2026-10-01.
+Converted to OGG Vorbis without post-generation gain or level matching.
