@@ -2,6 +2,10 @@
 
 Soul Reaper and Blightfall countdowns and voice cues for Retail San'layn Unholy Death Knights. The in-game UI and bundled voices are Chinese.
 
+## Version 1.1.4
+
+Both bundled voice cues receive 30% gain with soft peak limiting because their source audio already reaches full scale. Reminder timing and settings are unchanged.
+
 ## Version 1.1.3
 
 Heart and Soul Reaper can each trigger a Blightfall cue. When Heart expires first, the addon cues about two GCDs beforehand even without a Reaper cast. A late Reaper or occupied GCD no longer silences that urgent reminder. All target counts still use the same timing without nameplate scans.

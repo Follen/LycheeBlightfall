@@ -1,2 +1,2 @@
-• Heart and Soul Reaper can each trigger a Blightfall cue. When Heart expires first, cue about two GCDs before it ends even if Reaper has not been cast.
-• A late Reaper or occupied GCD no longer silences the urgent cue. If Reaper remains active after Heart expires, continue using its window.
+• Both bundled voice cues receive 30% gain with soft limiting of full-scale peaks.
+• Reminder timing, settings, and user-selected SharedMedia sounds are unchanged.

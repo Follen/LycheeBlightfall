@@ -50,7 +50,7 @@
 
 ## 开发与验证
 
-目标正式服 12.1.0，Interface 120100，当前版本 1.1.3。数据依据及秘密值调查见 `../Analyze/secret-value-audit-2026-09-28.md`；脏腑之力实现审计见 `../Analyze/visceral-strength-audit.md`（其准备阶段文案已移除），早期实现见 `../Analyze/implementation-audit.md`。
+目标正式服 12.1.0，Interface 120100，当前版本 1.1.4。数据依据及秘密值调查见 `../Analyze/secret-value-audit-2026-09-28.md`；脏腑之力实现审计见 `../Analyze/visceral-strength-audit.md`（其准备阶段文案已移除），早期实现见 `../Analyze/implementation-audit.md`。
 
 Lua 5.1：运行 `tests/engine_test.lua`、`tests/late_heart_test.lua`、`tests/runtime_test.lua`、`tests/loader_test.lua`、`tests/settings_test.lua`。设置页测试模拟暴雪画布选择顺序，覆盖首次打开、已有插件页面切入及重复打开。离线测试不能代替游戏实测。静态验证使用已固定的 lycheedev UI 源码快照，未声称游戏内 UI、战斗限制或性能已经实测通过。
 
